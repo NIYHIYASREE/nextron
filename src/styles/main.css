@@ -2098,6 +2098,7 @@ body::after {
   align-items: center;
   gap: 0;
   text-align: center;
+  overflow: visible;
 }
 
 /* College name */
@@ -2137,12 +2138,16 @@ body::after {
   align-items: baseline;
   justify-content: center;
   gap: 0;
-  /* safe mobile-first size: fits "NEXTRON'26" on 320px+ */
-  font-size: clamp(3rem, 16vw, 8rem);
+  /* Orbitron is wide — NEXTRON fits at ~9vw per char × 7 chars = 63vw
+     Adding '26 (~3 chars × 0.6em) total ~80vw max needed
+     Safe value: 9.5vw preferred, clamped 2rem–7rem */
+  font-size: clamp(2rem, 9.5vw, 7rem);
   letter-spacing: -0.01em;
-  /* wrap safety */
   flex-wrap: nowrap;
   width: 100%;
+  filter: drop-shadow(0 0 16px rgba(103,232,249,0.6))
+          drop-shadow(0 0 40px rgba(103,232,249,0.3));
+  animation: hero2-title-glow 4s ease-in-out infinite;
 }
 
 .hero2-title-next {
@@ -2174,12 +2179,6 @@ body::after {
   50%      { background-position: 100% center; }
 }
 
-/* Outer glow on the whole title via filter */
-.hero2-title {
-  filter: drop-shadow(0 0 16px rgba(103,232,249,0.6))
-          drop-shadow(0 0 40px rgba(103,232,249,0.3));
-  animation: hero2-title-glow 4s ease-in-out infinite;
-}
 
 @keyframes hero2-title-glow {
   0%,100% { filter: drop-shadow(0 0 16px rgba(103,232,249,0.6)) drop-shadow(0 0 40px rgba(103,232,249,0.3)); }
@@ -2562,7 +2561,7 @@ body::after {
 @media (min-width: 600px) {
   .hero2-content { max-width: 600px; }
   .hero2-why-grid { grid-template-columns: repeat(4, 1fr); }
-  .hero2-title { font-size: clamp(4rem, 15vw, 7rem); }
+  .hero2-title { font-size: clamp(3.5rem, 10vw, 6rem); }
 }
 
 /* ── Large screens ──────────────────────────────────────────── */
@@ -2572,14 +2571,14 @@ body::after {
     padding-top: 48px;
     padding-bottom: 60px;
   }
-  .hero2-title { font-size: clamp(5rem, 12vw, 8rem); }
+  .hero2-title { font-size: clamp(5rem, 9vw, 7.5rem); }
   .hero2-register-btn { min-height: 60px; font-size: 1.05rem; }
 }
 
-/* ── Very small screens (320–360px) ────────────────────────── */
+/* ── Very small screens (≤380px) ───────────────────────────── */
 @media (max-width: 380px) {
-  .hero2-title { font-size: clamp(2.6rem, 14vw, 3.5rem); }
-  .hero2-title-year { font-size: 0.58em; }
+  .hero2-title { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .hero2-title-year { font-size: 0.55em; }
   .hero2-info-row { gap: 5px; }
   .hero2-info-card { padding: 10px 5px; }
   .hero2-info-card strong { font-size: 0.68rem; }

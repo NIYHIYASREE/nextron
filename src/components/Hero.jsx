@@ -1,177 +1,187 @@
-import { ArrowRight, CalendarDays, MapPin, Sparkles, Zap } from "lucide-react";
+import { ArrowRight, CalendarDays, ExternalLink, MapPin, Rocket, Trophy, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
 import Countdown from "./Countdown.jsx";
 
+/* ── Animation variants ─────────────────────────────────────── */
+const fade = (delay = 0) => ({
+  hidden:  { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] } },
+});
 
-const CIRCUIT_PATHS = [
-  "M 0 120 L 80 120 L 80 60 L 200 60",
-  "M 300 0 L 300 80 L 380 80 L 380 160 L 500 160",
-  "M 600 200 L 680 200 L 680 120 L 760 120",
-  "M 100 300 L 100 240 L 220 240 L 220 180",
-  "M 480 300 L 560 300 L 560 220 L 640 220 L 640 160",
-  "M 20 400 L 120 400 L 120 340 L 280 340",
-  "M 700 80 L 780 80 L 780 180 L 860 180 L 860 260",
+const WHY_CARDS = [
+  { icon: Rocket,  title: "Tech Meets Creativity", desc: "Where ideas take flight" },
+  { icon: Users,   title: "Network & Collaborate", desc: "Connect with bright minds" },
+  { icon: Trophy,  title: "Compete & Win",          desc: "Showcase your talent & win big" },
+  { icon: Zap,     title: "Learn & Grow",           desc: "Gain insights from experts" },
 ];
-
-const NODE_POSITIONS = [
-  [80, 120], [80, 60], [300, 80], [380, 80], [380, 160],
-  [680, 200], [680, 120], [100, 240], [220, 240], [220, 180],
-  [560, 300], [560, 220], [640, 220], [780, 80], [780, 180],
-];
-
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
-};
-
-const itemVariants = {
-  hidden:  { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } },
-};
-
-const metaVariants = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.4 } },
-};
-const metaItem = {
-  hidden:  { opacity: 0, scale: 0.88, y: 10 },
-  visible: { opacity: 1, scale: 1,    y: 0,  transition: { duration: 0.4, ease: [0.22,1,0.36,1] } },
-};
-
-const actionVariants = {
-  hidden:  {},
-  visible: { transition: { staggerChildren: 0.1, delayChildren: 0.55 } },
-};
-const actionItem = {
-  hidden:  { opacity: 0, y: 14 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: [0.22,1,0.36,1] } },
-};
 
 export default function Hero() {
   return (
-    <section className="hero" id="home">
-      {/* ── Background layer ── */}
-      <div className="hero-visual" aria-hidden="true">
-        <svg className="circuit-svg" viewBox="0 0 900 480" preserveAspectRatio="xMidYMid slice">
-          {CIRCUIT_PATHS.map((d, i) => (
-            <path key={i} d={d} className="circuit-path" style={{ animationDelay: `${i * 0.6}s` }} />
-          ))}
-          {NODE_POSITIONS.map(([cx, cy], i) => (
-            <circle key={i} cx={cx} cy={cy} r="4" className="circuit-node" style={{ animationDelay: `${i * 0.3}s` }} />
-          ))}
-        </svg>
-        <div className="circuit-grid" />
-        <div className="energy-orbit orbit-one" />
-        <div className="energy-orbit orbit-two" />
-        <div className="energy-orbit orbit-three" />
-        <div className="particle-field">
-          {Array.from({ length: 28 }).map((_, i) => (
-            <span key={i} style={{ "--i": i }} />
+    <section className="hero2" id="home">
+
+      {/* ── Background ── */}
+      <div className="hero2-bg" aria-hidden="true">
+        {/* Deep space gradient */}
+        <div className="hero2-bg-base" />
+        {/* City silhouette */}
+        <div className="hero2-city" />
+        {/* Glow blobs */}
+        <div className="hero2-glow hero2-glow--left"  />
+        <div className="hero2-glow hero2-glow--right" />
+        {/* Grid overlay */}
+        <div className="hero2-grid" />
+        {/* Particles */}
+        <div className="hero2-particles">
+          {Array.from({ length: 22 }).map((_, i) => (
+            <span key={i} className="hero2-particle" style={{ "--pi": i }} />
           ))}
         </div>
-        <div className="hero-blob hero-blob--cyan" />
-        <div className="hero-blob hero-blob--magenta" />
       </div>
 
-      {/* ── Content ── */}
-      <div className="hero-content hero-content--center">
-        <motion.div variants={containerVariants} initial="hidden" animate="visible">
+      {/* ── Content wrapper ── */}
+      <div className="hero2-content">
 
-          {/* College name — animated gradient */}
-          <motion.p className="hero-college-name" variants={itemVariants}>
-            {siteConfig.venue}
-          </motion.p>
-
-          {/* Chip */}
-          <motion.span className="hero-chip hero-chip--center" variants={itemVariants}>
-            <Sparkles size={13} aria-hidden="true" />
-            National Level Technical Symposium
-          </motion.span>
-
-          {/* Main title — animated gradient shimmer */}
-          <motion.h1
-            className="hero-title hero-title--center"
-            variants={itemVariants}
-            aria-label={siteConfig.eventName}
-          >
-            {siteConfig.eventName}
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.p className="hero-subtitle hero-subtitle--center" variants={itemVariants}>
-            A NATIONAL LEVEL TECHNICAL SYMPOSIUM
-          </motion.p>
-
-          {/* Department */}
-          <motion.p className="hero-dept hero-dept--center" variants={itemVariants}>
-            {siteConfig.department}
-          </motion.p>
-
-          {/* Venue line */}
-          <motion.p className="hero-copy hero-copy--center" variants={itemVariants}>
-            {siteConfig.universityLine}
-          </motion.p>
-        </motion.div>
-
-        {/* Meta badges — centered */}
-        <motion.div
-          className="hero-meta hero-meta--center"
-          variants={metaVariants}
+        {/* College name */}
+        <motion.p
+          className="hero2-college"
+          variants={fade(0.05)}
           initial="hidden"
           animate="visible"
         >
-          {[
-            { icon: CalendarDays, label: siteConfig.eventDate },
-            { icon: MapPin,       label: siteConfig.shortLocation },
-            { icon: Zap,          label: `₹${siteConfig.registrationFee} Registration` },
-          ].map(({ icon: Icon, label }) => (
-            <motion.span key={label} variants={metaItem}>
-              <Icon size={15} aria-hidden="true" /> {label}
-            </motion.span>
-          ))}
-        </motion.div>
+          UNIVERSITY COLLEGE OF<br />ENGINEERING TINDIVANAM
+        </motion.p>
 
-        {/* CTA buttons — centered */}
-        <motion.div
-          className="hero-actions hero-actions--center"
-          variants={actionVariants}
+        {/* Chip */}
+        <motion.span
+          className="hero2-chip"
+          variants={fade(0.15)}
           initial="hidden"
           animate="visible"
         >
-          <motion.button
-            className="btn btn-primary btn-glow"
-            type="button"
-            onClick={openRegistrationForm}
-            variants={actionItem}
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-          >
-            Register Now <ArrowRight size={17} aria-hidden="true" />
-          </motion.button>
-          <motion.div variants={actionItem}>
-            <Link className="btn btn-secondary" to="/events">
-              Explore Events
-            </Link>
-          </motion.div>
-          <motion.div variants={actionItem}>
-            <Link className="btn btn-ghost" to="/location">
-              Location
-            </Link>
-          </motion.div>
+          <Zap size={12} aria-hidden="true" />
+          NATIONAL LEVEL TECHNICAL SYMPOSIUM
+        </motion.span>
+
+        {/* Main title */}
+        <motion.h1
+          className="hero2-title"
+          variants={fade(0.22)}
+          initial="hidden"
+          animate="visible"
+          aria-label={siteConfig.eventName}
+        >
+          <span className="hero2-title-next">NEXTRON</span>
+          <span className="hero2-title-year">'26</span>
+        </motion.h1>
+
+        {/* Tagline pill */}
+        <motion.div
+          className="hero2-tagline-pill"
+          variants={fade(0.32)}
+          initial="hidden"
+          animate="visible"
+        >
+          INNOVATE &nbsp;•&nbsp; INSPIRE &nbsp;•&nbsp; IMPACT
         </motion.div>
 
-        {/* Countdown — centered */}
-        <motion.div
-          className="hero-countdown-wrap"
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.85, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+        {/* Subtitle lines */}
+        <motion.p className="hero2-subtitle" variants={fade(0.38)} initial="hidden" animate="visible">
+          A NATIONAL LEVEL TECHNICAL SYMPOSIUM
+        </motion.p>
+        <motion.p className="hero2-dept" variants={fade(0.44)} initial="hidden" animate="visible">
+          DEPARTMENT OF ELECTRONICS &amp; COMMUNICATION ENGINEERING
+        </motion.p>
+        <motion.p className="hero2-univ" variants={fade(0.48)} initial="hidden" animate="visible">
+          A CONSTITUENT COLLEGE OF ANNA UNIVERSITY CHENNAI
+        </motion.p>
+
+        {/* Info row */}
+        <motion.div className="hero2-info-row" variants={fade(0.54)} initial="hidden" animate="visible">
+          <div className="hero2-info-card">
+            <CalendarDays size={20} aria-hidden="true" />
+            <div>
+              <strong>18<br />SEPTEMBER</strong>
+              <span>2026</span>
+            </div>
+          </div>
+          <div className="hero2-info-card">
+            <MapPin size={20} aria-hidden="true" />
+            <div>
+              <strong>MELPAKKAM</strong>
+              <span>TAMIL NADU</span>
+            </div>
+          </div>
+          <div className="hero2-info-card">
+            <Zap size={20} aria-hidden="true" />
+            <div>
+              <strong>₹250</strong>
+              <span>REGISTRATION</span>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Register Now — full width */}
+        <motion.button
+          className="hero2-register-btn"
+          type="button"
+          onClick={openRegistrationForm}
+          variants={fade(0.62)}
+          initial="hidden"
+          animate="visible"
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.97 }}
         >
+          REGISTER NOW
+          <ArrowRight size={20} aria-hidden="true" />
+        </motion.button>
+
+        {/* Secondary buttons row */}
+        <motion.div className="hero2-secondary-row" variants={fade(0.68)} initial="hidden" animate="visible">
+          <Link className="hero2-sec-btn" to="/events">
+            <CalendarDays size={16} aria-hidden="true" />
+            EXPLORE EVENTS
+            <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+          <Link className="hero2-sec-btn" to="/location">
+            <MapPin size={16} aria-hidden="true" />
+            LOCATION
+            <ArrowRight size={15} aria-hidden="true" />
+          </Link>
+        </motion.div>
+
+        {/* Countdown */}
+        <motion.div className="hero2-countdown-section" variants={fade(0.74)} initial="hidden" animate="visible">
+          <div className="hero2-countdown-label">
+            <span className="hero2-label-line" />
+            THE COUNTDOWN BEGINS
+            <span className="hero2-label-line" />
+          </div>
           <Countdown />
         </motion.div>
+
+        {/* Why NEXTRON cards */}
+        <motion.div className="hero2-why-section" variants={fade(0.82)} initial="hidden" animate="visible">
+          <div className="hero2-countdown-label">
+            <span className="hero2-label-line" />
+            WHY NEXTRON?
+            <span className="hero2-label-line" />
+          </div>
+          <div className="hero2-why-grid">
+            {WHY_CARDS.map(({ icon: Icon, title, desc }) => (
+              <div className="hero2-why-card" key={title}>
+                <div className="hero2-why-icon">
+                  <Icon size={22} aria-hidden="true" />
+                </div>
+                <strong className="hero2-why-title">{title}</strong>
+                <p className="hero2-why-desc">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
       </div>
     </section>
   );

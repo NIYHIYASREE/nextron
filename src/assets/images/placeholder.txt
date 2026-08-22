@@ -1,0 +1,1 @@
+Place clg_front_image.png and logo.png in this folder.

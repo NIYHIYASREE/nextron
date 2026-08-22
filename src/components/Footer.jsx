@@ -2,6 +2,8 @@ import { Instagram, Linkedin, Link as LinkIcon, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
+import clgFrontImage from "../assets/images/clg_front_image.png";
+import logoImg from "../assets/images/logo.png";
 
 const quickLinks = [
   ["Home", "/"],
@@ -24,7 +26,9 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <div className="footer-logo">
-            <span className="brand-mark">N</span>
+            <span className="brand-mark brand-mark--logo">
+              <img src={logoImg} alt={`${siteConfig.eventName} logo`} className="brand-logo-img" />
+            </span>
             <div>
               <strong>{siteConfig.eventName}</strong>
               <small>{siteConfig.department}</small>
@@ -62,6 +66,18 @@ export default function Footer() {
           <button type="button" className="btn btn-primary" onClick={openRegistrationForm}>
             Register Now
           </button>
+        </div>
+      </div>
+
+      {/* College building image */}
+      <div className="footer-clg-image-wrap">
+        <img
+          src={clgFrontImage}
+          alt="University College of Engineering Tindivanam campus"
+          className="footer-clg-image"
+        />
+        <div className="footer-clg-overlay">
+          <span>{siteConfig.venue}</span>
         </div>
       </div>
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
+import logoImg from "../assets/images/logo.png";
 
 const navItems = [
   { label: "Home", to: "/" },
@@ -37,7 +38,9 @@ export default function Navbar() {
       </a>
       <nav className="navbar" aria-label="Primary navigation">
         <Link className="brand" to="/">
-          <span className="brand-mark">N</span>
+          <span className="brand-mark brand-mark--logo">
+            <img src={logoImg} alt={`${siteConfig.eventName} logo`} className="brand-logo-img" />
+          </span>
           <span>
             <strong>{siteConfig.eventName}</strong>
             <small>ECE · Tindivanam</small>

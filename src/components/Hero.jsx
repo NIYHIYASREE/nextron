@@ -5,6 +5,7 @@ import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
 import Countdown from "./Countdown.jsx";
 
+
 const CIRCUIT_PATHS = [
   "M 0 120 L 80 120 L 80 60 L 200 60",
   "M 300 0 L 300 80 L 380 80 L 380 160 L 500 160",
@@ -76,18 +77,23 @@ export default function Hero() {
       </div>
 
       {/* ── Content ── */}
-      <div className="hero-content">
+      <div className="hero-content hero-content--center">
         <motion.div variants={containerVariants} initial="hidden" animate="visible">
 
+          {/* College name — animated gradient */}
+          <motion.p className="hero-college-name" variants={itemVariants}>
+            {siteConfig.venue}
+          </motion.p>
+
           {/* Chip */}
-          <motion.span className="hero-chip" variants={itemVariants}>
+          <motion.span className="hero-chip hero-chip--center" variants={itemVariants}>
             <Sparkles size={13} aria-hidden="true" />
             National Level Technical Symposium
           </motion.span>
 
-          {/* Main title — largest text on mobile, must be fully visible */}
+          {/* Main title — animated gradient shimmer */}
           <motion.h1
-            className="hero-title"
+            className="hero-title hero-title--center"
             variants={itemVariants}
             aria-label={siteConfig.eventName}
           >
@@ -95,24 +101,24 @@ export default function Hero() {
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p className="hero-subtitle" variants={itemVariants}>
+          <motion.p className="hero-subtitle hero-subtitle--center" variants={itemVariants}>
             A NATIONAL LEVEL TECHNICAL SYMPOSIUM
           </motion.p>
 
           {/* Department */}
-          <motion.p className="hero-dept" variants={itemVariants}>
+          <motion.p className="hero-dept hero-dept--center" variants={itemVariants}>
             {siteConfig.department}
           </motion.p>
 
-          {/* Venue */}
-          <motion.p className="hero-copy" variants={itemVariants}>
-            {siteConfig.venue} &nbsp;·&nbsp; {siteConfig.universityLine}
+          {/* Venue line */}
+          <motion.p className="hero-copy hero-copy--center" variants={itemVariants}>
+            {siteConfig.universityLine}
           </motion.p>
         </motion.div>
 
-        {/* Meta badges — staggered pop-in */}
+        {/* Meta badges — centered */}
         <motion.div
-          className="hero-meta"
+          className="hero-meta hero-meta--center"
           variants={metaVariants}
           initial="hidden"
           animate="visible"
@@ -128,9 +134,9 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* CTA buttons */}
+        {/* CTA buttons — centered */}
         <motion.div
-          className="hero-actions"
+          className="hero-actions hero-actions--center"
           variants={actionVariants}
           initial="hidden"
           animate="visible"
@@ -157,8 +163,9 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        {/* Countdown */}
+        {/* Countdown — centered */}
         <motion.div
+          className="hero-countdown-wrap"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}

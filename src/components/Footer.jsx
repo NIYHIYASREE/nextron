@@ -2,8 +2,8 @@ import { Instagram, Linkedin, Link as LinkIcon, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
-import clgFrontImage from "../assets/images/clg_front_image.png";
-import logoImg from "../assets/images/logo.png";
+const clgFrontImage = "/clg_front_image.png";
+const logoImg = "/logo.png";
 
 const quickLinks = [
   ["Home", "/"],

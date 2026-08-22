@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
-import logoImg from "../assets/images/logo.png";
+const logoImg = "/logo.png";
 
 const navItems = [
   { label: "Home", to: "/" },

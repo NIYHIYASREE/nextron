@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#050814"/>
+      <stop offset=".55" stop-color="#081a3a"/>
+      <stop offset="1" stop-color="#250b43"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".7" cy=".35" r=".55">
+      <stop stop-color="#26d9ff" stop-opacity=".85"/>
+      <stop offset=".45" stop-color="#9b5cff" stop-opacity=".35"/>
+      <stop offset="1" stop-color="#050814" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <path d="M80 500C250 350 390 610 560 450S860 250 1120 360" fill="none" stroke="#67e8f9" stroke-width="4" opacity=".35"/>
+  <g fill="none" stroke="#c084fc" opacity=".5">
+    <path d="M140 130h200v80h160v-40h180"/>
+    <path d="M700 110v110h140v95h200"/>
+    <path d="M190 420h180v-90h210v50h140"/>
+  </g>
+  <text x="80" y="255" fill="#fff" font-family="Inter, Arial, sans-serif" font-size="96" font-weight="800">NEXTRON'26</text>
+  <text x="84" y="325" fill="#67e8f9" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700">A NATIONAL LEVEL TECHNICAL SYMPOSIUM</text>
+  <text x="86" y="390" fill="#dbeafe" font-family="Inter, Arial, sans-serif" font-size="28">18 September 2026 · UCE Tindivanam</text>
+</svg>

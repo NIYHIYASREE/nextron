@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NEXTRON'26">
+  <rect width="64" height="64" rx="16" fill="#050814"/>
+  <path d="M14 42V22h7l12 20h-7L14 22v20h-6z" fill="#67e8f9"/>
+  <path d="M36 19h16v6H42v7h9v6h-9v7H36z" fill="#c084fc"/>
+  <circle cx="51" cy="20" r="5" fill="#ff4fd8"/>
+</svg>

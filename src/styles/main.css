@@ -2132,65 +2132,75 @@ body::after {
 /* ── Main title ─────────────────────────────────────────────── */
 .hero2-title {
   margin: 0 0 14px;
-  line-height: 0.92;
+  line-height: 0.95;
   display: flex;
   align-items: baseline;
   justify-content: center;
   gap: 0;
-  font-size: clamp(4.2rem, 20vw, 8rem);
-  letter-spacing: -0.02em;
+  /* safe mobile-first size: fits "NEXTRON'26" on 320px+ */
+  font-size: clamp(3rem, 16vw, 8rem);
+  letter-spacing: -0.01em;
+  /* wrap safety */
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
 .hero2-title-next {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  /* Metallic silver-white gradient with neon shine */
+  /* Fallback solid color first — always visible */
+  color: #ffffff;
+  /* Gradient on top — if supported */
   background: linear-gradient(
     170deg,
     #ffffff 0%,
-    #c8e8ff 18%,
-    #ffffff 35%,
-    #a0cfff 52%,
-    #ffffff 68%,
-    #d4f0ff 85%,
-    #ffffff 100%
+    #c8e8ff 20%,
+    #ffffff 40%,
+    #a8d8ff 60%,
+    #ffffff 80%,
+    #d4f0ff 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none;
-  filter: drop-shadow(0 0 18px rgba(103,232,249,0.55))
-          drop-shadow(0 0 40px rgba(103,232,249,0.3));
+  -webkit-text-fill-color: transparent;
+  /* glow via drop-shadow on parent h1 instead of text-shadow */
   animation: hero2-title-shimmer 4s ease-in-out infinite;
+  display: inline-block;
 }
 
 @keyframes hero2-title-shimmer {
-  0%,100% {
-    background-position: 0% center;
-    filter: drop-shadow(0 0 18px rgba(103,232,249,0.55)) drop-shadow(0 0 40px rgba(103,232,249,0.3));
-  }
-  50% {
-    background-position: 100% center;
-    filter: drop-shadow(0 0 30px rgba(103,232,249,0.85)) drop-shadow(0 0 70px rgba(103,232,249,0.5));
-  }
+  0%,100% { background-position: 0% center; }
+  50%      { background-position: 100% center; }
+}
+
+/* Outer glow on the whole title via filter */
+.hero2-title {
+  filter: drop-shadow(0 0 16px rgba(103,232,249,0.6))
+          drop-shadow(0 0 40px rgba(103,232,249,0.3));
+  animation: hero2-title-glow 4s ease-in-out infinite;
+}
+
+@keyframes hero2-title-glow {
+  0%,100% { filter: drop-shadow(0 0 16px rgba(103,232,249,0.6)) drop-shadow(0 0 40px rgba(103,232,249,0.3)); }
+  50%      { filter: drop-shadow(0 0 28px rgba(103,232,249,0.9)) drop-shadow(0 0 70px rgba(103,232,249,0.5)); }
 }
 
 .hero2-title-year {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  font-size: 0.62em;
-  /* Magenta-to-cyan gradient for the year */
+  font-size: 0.6em;
+  /* Fallback solid color */
+  color: #ff4fd8;
   background: linear-gradient(135deg, #ff4fd8 0%, #c084fc 50%, #38bdf8 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 14px rgba(255,79,216,0.65))
-          drop-shadow(0 0 32px rgba(255,79,216,0.4));
+  -webkit-text-fill-color: transparent;
   animation: hero2-year-shimmer 3.5s ease-in-out infinite;
   align-self: flex-start;
-  margin-top: 0.1em;
+  margin-top: 0.08em;
+  display: inline-block;
 }
 
 @keyframes hero2-year-shimmer {
@@ -2552,7 +2562,7 @@ body::after {
 @media (min-width: 600px) {
   .hero2-content { max-width: 600px; }
   .hero2-why-grid { grid-template-columns: repeat(4, 1fr); }
-  .hero2-title { font-size: clamp(5rem, 18vw, 8rem); }
+  .hero2-title { font-size: clamp(4rem, 15vw, 7rem); }
 }
 
 /* ── Large screens ──────────────────────────────────────────── */
@@ -2562,8 +2572,17 @@ body::after {
     padding-top: 48px;
     padding-bottom: 60px;
   }
-  .hero2-title { font-size: clamp(6rem, 14vw, 9rem); }
+  .hero2-title { font-size: clamp(5rem, 12vw, 8rem); }
   .hero2-register-btn { min-height: 60px; font-size: 1.05rem; }
+}
+
+/* ── Very small screens (320–360px) ────────────────────────── */
+@media (max-width: 380px) {
+  .hero2-title { font-size: clamp(2.6rem, 14vw, 3.5rem); }
+  .hero2-title-year { font-size: 0.58em; }
+  .hero2-info-row { gap: 5px; }
+  .hero2-info-card { padding: 10px 5px; }
+  .hero2-info-card strong { font-size: 0.68rem; }
 }
 
 /* ── Reduced motion ─────────────────────────────────────────── */

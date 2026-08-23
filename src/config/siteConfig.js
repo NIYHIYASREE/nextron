@@ -9,7 +9,7 @@ export const siteConfig = {
     "https://docs.google.com/forms/d/e/1FAIpQLScUDw_F3YwuvSqBLB6w0QzO7xRyE0rsRh3-mDD350ihvsos3Q/viewform",
   registrationFee: 250,
   venue: "University College of Engineering Tindivanam",
-  department: "Department of Electronics and Communication Engineering",
+  department: "Department of Electronics and  Communication Engineering",
   universityLine: "A Constituent College of Anna University Chennai",
   address: "Melpakkam Village, Villupuram District, Tamil Nadu - 604 001",
   shortLocation: "Melpakkam, Tamil Nadu",

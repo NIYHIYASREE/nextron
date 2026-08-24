@@ -2,9 +2,9 @@ export const siteConfig = {
   eventName: "NEXTRON'26",
   eventFullName: "NEXTRON'26 - A National Level Technical Symposium",
   tagline: "The future of technology meets competition.",
-  eventDate: "18 September 2026",
-  eventStartIso: "2026-09-18T09:00:00+05:30",
-  eventEndIso: "2026-09-18T18:00:00+05:30",
+  eventDate: "16 September 2026",
+  eventStartIso: "2026-09-16T09:00:00+05:30",
+  eventEndIso: "2026-09-16T18:00:00+05:30",
   registrationFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLScUDw_F3YwuvSqBLB6w0QzO7xRyE0rsRh3-mDD350ihvsos3Q/viewform",
   registrationFee: 250,

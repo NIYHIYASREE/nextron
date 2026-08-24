@@ -24,8 +24,8 @@ export default function FluidCanvas() {
       PRESSURE:            0.8,
       PRESSURE_ITERATIONS: 20,
       CURL:                30,
-      SPLAT_RADIUS:        0.25,
-      SPLAT_FORCE:         6000,
+      SPLAT_RADIUS:        0.12,
+      SPLAT_FORCE:         3000,
       COLORFUL:            true,
       COLOR_UPDATE_SPEED:  10,
       BACK_COLOR:          { r: 0, g: 0, b: 0 },
@@ -313,7 +313,7 @@ export default function FluidCanvas() {
     }
 
     initFBOs();
-    multipleSplats(Math.floor(Math.random() * 10) + 3);
+    multipleSplats(Math.floor(Math.random() * 5) + 2);
 
     /* ── Simulation step ── */
     function step(dt) {

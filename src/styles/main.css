@@ -2566,37 +2566,14 @@ body::after {
 ══════════════════════════════════════════════════════════════ */
 .fluid-canvas {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
   pointer-events: none;
   display: block;
-  /* Additive-style blending with the dark background */
   mix-blend-mode: screen;
-  /* Subtle CSS blur adds soft glow halo around colour trails */
-  filter: blur(8px) brightness(1.1);
-  /* Smooth pixel interpolation on the upscaled canvas */
-  image-rendering: auto;
-  opacity: 0.92;
-  /* Fade in once mounted — avoids flash on first frame */
-  animation: fluid-fadein 1.8s ease-out both;
 }
-
-@keyframes fluid-fadein {
-  from { opacity: 0; }
-  to   { opacity: 0.92; }
-}
-
-/* On mobile reduce blur slightly for crisper render */
-@media (max-width: 600px) {
-  .fluid-canvas {
-    filter: blur(5px) brightness(1.05);
-    opacity: 0.85;
-  }
-}
-
-/* Reduced motion — hide the canvas completely; body::after static fallback shows */
 @media (prefers-reduced-motion: reduce) {
   .fluid-canvas { display: none !important; }
 }

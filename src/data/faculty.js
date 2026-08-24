@@ -14,7 +14,7 @@ export const facultyGroups = [
     title: "Head of the Department",
     people: [
       {
-        name: "Dr. R. Gopinath",
+        name: "Dr. K. Venkatalakshmi",
         role: "Head of the Department",
         qualification: "B.E., M.Tech., Ph.D.",
         image: "/src/assets/faculty/hod.webp",
@@ -25,13 +25,13 @@ export const facultyGroups = [
     title: "Associate Professors",
     people: [
       {
-        name: "Dr. D. Rajkumar",
+        name: "[Placeholder]",
         role: "Associate Professor",
         qualification: "B.E., M.E., Ph.D.",
         image: "/src/assets/faculty/rajkumar.webp",
       },
       {
-        name: "Mr. K. R. Venkatesh",
+        name: "[Placeholder]",
         role: "Associate Professor",
         qualification: "B.E., M.E.",
         specialization: "Environmental Engineering, Wastewater Treatment",
@@ -43,27 +43,27 @@ export const facultyGroups = [
     title: "Assistant Professors",
     people: [
       {
-        name: "Dr. M. Anbarasan",
+        name: "[Placeholder]",
         role: "Assistant Professor (Sl. Gr.)",
         qualification: "B.E., M.E., Ph.D.",
         specialization: "Machining and optimisation",
         image: "/src/assets/faculty/anbarasan.webp",
       },
       {
-        name: "Dr. K. R. Leelavathy",
+        name: "[Placeholder]",
         role: "Assistant Professor (Sr. Gr.)",
         qualification: "B.E., M.E., Ph.D.",
         image: "/src/assets/faculty/leelavathy.webp",
       },
       {
-        name: "Mrs. J. Attchaya",
+        name: "[Placeholder]",
         role: "Assistant Professor",
         qualification: "M.E.",
         specialization: "Structural Engineering",
         image: "/src/assets/faculty/attchaya.webp",
       },
       {
-        name: "Ms. S. Kashini",
+        name: "[Placeholder]",
         role: "Assistant Professor",
         qualification: "M.E.",
         specialization: "Structural Engineering",
@@ -74,10 +74,10 @@ export const facultyGroups = [
   {
     title: "Non-Teaching Staff",
     people: [
-      { name: "Mr. A. Senthilvelan", role: "Technical Assistant (Sl.Gr)" },
-      { name: "Mrs. M. Geetha", role: "Laboratory Assistant (Sl.Gr)" },
-      { name: "Mr. K. Subramanian", role: "Laboratory Assistant (Sl.Gr)" },
-      { name: "Mr. S. NaveenKumar", role: "Peon Cum Fitter" },
+      { name: "[Placeholder]", role: "Technical Assistant (Sl.Gr)" },
+      { name: "[Placeholder]", role: "Laboratory Assistant (Sl.Gr)" },
+      { name: "[Placeholder]", role: "Laboratory Assistant (Sl.Gr)" },
+      { name: "[Placeholder]", role: "Peon Cum Fitter" },
     ],
   },
 ];

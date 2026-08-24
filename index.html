@@ -30,7 +30,12 @@
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Only Orbitron — the one font actually visible during preload -->
+    <!--
+      All 5 preloader fonts loaded NON-BLOCKING via media=print swap trick.
+      - Orbitron: preloaded (highest priority — used first, visible immediately)
+      - Audiowide, Bebas Neue, Russo One, Righteous: deferred in one request
+      Page paint is never blocked. Fonts swap in as they arrive.
+    -->
     <link
       rel="preload"
       as="style"
@@ -42,8 +47,14 @@
       media="print"
       onload="this.media='all'"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Russo+One&family=Righteous&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
     <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Audiowide&family=Bebas+Neue&family=Russo+One&family=Righteous&display=swap" />
     </noscript>
 
     <!--

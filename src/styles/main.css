@@ -1741,7 +1741,6 @@ body::after {
 
 .preloader-letter {
   display: inline-block;
-  font-family: 'Orbitron', sans-serif;
   font-weight: 900;
   font-size: clamp(3.6rem, 15vw, 9.5rem);
   line-height: 1;
@@ -1752,6 +1751,16 @@ body::after {
     pl-letter-bob    1.8s calc(var(--li,0) * -0.26s) ease-in-out infinite;
   will-change: color, text-shadow, transform;
 }
+
+/* Each of the 7 letters gets a different futuristic font — static,
+   no JS needed. Font swap via CSS font-display on the Google request. */
+.preloader-letter:nth-child(1) { font-family: 'Orbitron',   sans-serif; }  /* N */
+.preloader-letter:nth-child(2) { font-family: 'Audiowide',  sans-serif; }  /* E */
+.preloader-letter:nth-child(3) { font-family: 'Bebas Neue', cursive;    }  /* X */
+.preloader-letter:nth-child(4) { font-family: 'Russo One',  sans-serif; }  /* T */
+.preloader-letter:nth-child(5) { font-family: 'Righteous',  cursive;    }  /* R */
+.preloader-letter:nth-child(6) { font-family: 'Orbitron',   sans-serif; }  /* O */
+.preloader-letter:nth-child(7) { font-family: 'Audiowide',  sans-serif; }  /* N */
 
 /* Colour + glow cycle — 7 neon stops, loops smoothly */
 @keyframes pl-letter-color {

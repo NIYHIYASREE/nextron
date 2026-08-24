@@ -3,30 +3,75 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="NEXTRON'26 is a national-level technical symposium organized by the Department of Electronics and Communication Engineering, University College of Engineering Tindivanam."
-    />
+    <meta name="description" content="NEXTRON'26 is a national-level technical symposium organized by the Department of Electronics and Communication Engineering, University College of Engineering Tindivanam." />
     <meta name="theme-color" content="#050814" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="NEXTRON'26 | National Level Technical Symposium | UCE Tindivanam" />
-    <meta
-      property="og:description"
-      content="A premium technology symposium by the Department of Electronics and Communication Engineering, University College of Engineering Tindivanam."
-    />
+    <meta property="og:description" content="A premium technology symposium by the Department of Electronics and Communication Engineering, University College of Engineering Tindivanam." />
     <meta property="og:image" content="/og-preview.svg" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="NEXTRON'26 | National Level Technical Symposium" />
-    <meta
-      name="twitter:description"
-      content="Join NEXTRON'26 on 18 September 2026 at University College of Engineering Tindivanam."
-    />
+    <meta name="twitter:description" content="Join NEXTRON'26 on 18 September 2026 at University College of Engineering Tindivanam." />
     <meta name="twitter:image" content="/og-preview.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Audiowide&family=Bebas+Neue&family=Russo+One&family=Righteous&display=swap" rel="stylesheet" />
+
     <link rel="icon" href="/logo.png" type="image/png" />
     <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!--
+      FONT STRATEGY (optimised)
+      ─────────────────────────
+      Old: 5 font families (Orbitron, Audiowide, Bebas Neue, Russo One, Righteous)
+           loaded in one blocking request — ~180KB, all blocking paint.
+
+      New: Only Orbitron (used in preloader + hero title).
+           font-display=swap so text renders immediately with system font,
+           then swaps in Orbitron when ready — no blank text.
+           preconnect fires before the CSS parser hits the link tag.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Only Orbitron — the one font actually visible during preload -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" />
+    </noscript>
+
+    <!--
+      CRITICAL CSS — inlined so the preloader renders immediately
+      with correct background and hidden body overflow.
+      This prevents the white flash before main.css loads.
+    -->
+    <style>
+      *,*::before,*::after{box-sizing:border-box}
+      html{overflow-x:hidden;scroll-behavior:smooth}
+      body{
+        margin:0;min-height:100vh;overflow-x:hidden;
+        background:#050814;color:#f8fbff;
+        font-family:Inter,ui-sans-serif,system-ui,-apple-system,sans-serif;
+        -webkit-font-smoothing:antialiased;
+      }
+      #root{min-height:100vh}
+      /* Preloader shell visible instantly — no FOUC */
+      .preloader{
+        position:fixed;inset:0;z-index:9999;
+        display:flex;align-items:center;justify-content:center;
+        background:#050814;overflow:hidden;
+        opacity:0;transform:scale(1.04);
+        animation:pl-enter .5s cubic-bezier(.22,1,.36,1) forwards;
+      }
+      @keyframes pl-enter{to{opacity:1;transform:scale(1)}}
+    </style>
+
     <title>NEXTRON'26 | National Level Technical Symposium | UCE Tindivanam</title>
   </head>
   <body>

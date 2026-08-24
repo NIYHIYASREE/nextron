@@ -51,7 +51,8 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          UNIVERSITY COLLEGE OF<br />ENGINEERING TINDIVANAM
+          UNIVERSITY COLLEGE OF<br />
+ENGINEERING TINDIVANAM
         </motion.p>
 
         {/* Chip */}
@@ -103,7 +104,7 @@ export default function Hero() {
           <div className="hero2-info-card">
             <CalendarDays size={20} aria-hidden="true" />
             <div>
-              <strong>18<br />SEPTEMBER</strong>
+              <strong>16<br />SEPTEMBER</strong>
               <span>2026</span>
             </div>
           </div>

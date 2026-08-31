@@ -1,0 +1,1 @@
+const e=["technical challenges","innovation","creativity","competition","knowledge sharing","networking","entertainment"],t=["Click Register Now","Complete the Google Form","Select your events","Follow the payment instructions","Complete your registration"];export{t as r,e as s};

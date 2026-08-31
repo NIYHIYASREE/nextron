@@ -44,15 +44,14 @@ export default function Hero() {
       {/* ── Content wrapper ── */}
       <div className="hero2-content">
 
-        {/* College name */}
+        {/* College name — one line */}
         <motion.p
           className="hero2-college"
           variants={fade(0.05)}
           initial="hidden"
           animate="visible"
         >
-          UNIVERSITY COLLEGE OF<br />
-ENGINEERING TINDIVANAM
+          UCE TINDIVANAM
         </motion.p>
 
         {/* Chip */}

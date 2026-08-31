@@ -23,6 +23,9 @@ export default function Register() {
         <span className="eyebrow">Registration Open</span>
         <h1>Register for {siteConfig.eventName}</h1>
         <p className="fee-display">₹{siteConfig.registrationFee} Symposium Registration Fee</p>
+        <p className="registration-close-note">
+          🗓 Registration closes on <strong>{siteConfig.registrationCloseDate}</strong>
+        </p>
         <p>
           Registration is handled entirely through the official Google Form. The website does not store
           student data, process payments, or require login.

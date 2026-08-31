@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { CircuitBoard, Cpu, RadioTower, Waves } from "lucide-react";
+import { motion } from "framer-motion";
 import Hero from "../components/Hero.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import EventCard from "../components/EventCard.jsx";
@@ -7,11 +8,21 @@ import FacultyCard from "../components/FacultyCard.jsx";
 import CommitteeCard from "../components/CommitteeCard.jsx";
 import LocationSection from "../components/LocationSection.jsx";
 import RegistrationCTA from "../components/RegistrationCTA.jsx";
+import ScrollReveal from "../components/ScrollReveal.jsx";
 import { events } from "../data/events.js";
 import { facultyGroups } from "../data/faculty.js";
 import { committees } from "../data/committees.js";
 import { symposiumHighlights } from "../data/symposium.js";
 import { siteConfig } from "../config/siteConfig.js";
+
+const EASE = [0.22, 1, 0.36, 1];
+
+const SIGNAL_CARDS = [
+  { icon: CircuitBoard, title: "ECE Identity",    desc: "Circuit-inspired visuals, digital motion, and competition-first event flow." },
+  { icon: Cpu,          title: "Technical Core",  desc: "Paper, project, and quiz events built around engineering clarity and innovation." },
+  { icon: Waves,        title: "Touch Ripple",    desc: "A global water-like pointer interaction tuned for mobile screens and reduced motion." },
+  { icon: RadioTower,   title: "Static Ready",    desc: "No backend, accounts, or payment SDK. Registration opens through Google Forms." },
+];
 
 export default function Home() {
   const leadFaculty = facultyGroups.slice(0, 2).flatMap((group) => group.people);
@@ -20,6 +31,7 @@ export default function Home() {
     <>
       <Hero />
 
+      {/* ── About band ── */}
       <section className="section about-band" id="about">
         <SectionHeading eyebrow="About Nextron" title="The future of technology meets competition.">
           {siteConfig.eventName} brings technical challenges, creative events, and student energy into one focused
@@ -27,37 +39,47 @@ export default function Home() {
         </SectionHeading>
         <div className="highlight-grid">
           {symposiumHighlights.map((item, index) => (
-            <div className="highlight-tile" key={item}>
+            <motion.div
+              className="highlight-tile"
+              key={item}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.45, delay: index * 0.07, ease: EASE }}
+            >
               <span>{String(index + 1).padStart(2, "0")}</span>
               <strong>{item}</strong>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
+      {/* ── Signal cards ── */}
       <section className="section signal-section">
-        <div className="signal-card">
-          <CircuitBoard size={28} aria-hidden="true" />
-          <h3>ECE Identity</h3>
-          <p>Circuit-inspired visuals, digital motion, and competition-first event flow.</p>
-        </div>
-        <div className="signal-card">
-          <Cpu size={28} aria-hidden="true" />
-          <h3>Technical Core</h3>
-          <p>Paper, project, and quiz events built around engineering clarity and innovation.</p>
-        </div>
-        <div className="signal-card">
-          <Waves size={28} aria-hidden="true" />
-          <h3>Touch Ripple</h3>
-          <p>A global water-like pointer interaction tuned for mobile screens and reduced motion.</p>
-        </div>
-        <div className="signal-card">
-          <RadioTower size={28} aria-hidden="true" />
-          <h3>Static Ready</h3>
-          <p>No backend, accounts, or payment SDK. Registration opens through Google Forms.</p>
-        </div>
+        {SIGNAL_CARDS.map(({ icon: Icon, title, desc }, i) => (
+          <motion.div
+            className="signal-card"
+            key={title}
+            initial={{ opacity: 0, y: 28, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.48, delay: i * 0.09, ease: EASE }}
+            whileHover={{ y: -5, transition: { duration: 0.2 } }}
+          >
+            <motion.span
+              whileHover={{ rotate: 12, scale: 1.15 }}
+              transition={{ type: "spring", stiffness: 280 }}
+              style={{ display: "inline-block" }}
+            >
+              <Icon size={28} aria-hidden="true" />
+            </motion.span>
+            <h3>{title}</h3>
+            <p>{desc}</p>
+          </motion.div>
+        ))}
       </section>
 
+      {/* ── Events ── */}
       <section className="section" id="events">
         <SectionHeading eyebrow="Events" title="Technical and non-technical competitions">
           Explore the complete NEXTRON event lineup, then register through the official form.
@@ -67,13 +89,14 @@ export default function Home() {
             <EventCard event={event} index={index} key={event.id} />
           ))}
         </div>
-        <div className="section-link-row">
+        <ScrollReveal className="section-link-row" delay={0.1}>
           <Link className="btn btn-secondary" to="/events">
             View All Events
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
+      {/* ── Faculty ── */}
       <section className="section" id="faculty">
         <SectionHeading eyebrow="Faculty" title="Guided by the department leadership">
           Faculty information uses local image support with professional placeholders when real photographs are not
@@ -86,6 +109,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Committee ── */}
       <section className="section" id="committee">
         <SectionHeading eyebrow="Committee" title="Student teams powering NEXTRON'26" />
         <div className="committee-grid committee-grid--preview">
@@ -93,17 +117,19 @@ export default function Home() {
             <CommitteeCard committee={committee} key={`${committee.category || "core"}-${committee.title}`} />
           ))}
         </div>
-        <div className="section-link-row">
+        <ScrollReveal className="section-link-row" delay={0.1}>
           <Link className="btn btn-secondary" to="/committee">
             View Committee
           </Link>
-        </div>
+        </ScrollReveal>
       </section>
 
+      {/* ── Location ── */}
       <section className="section" id="location">
         <LocationSection />
       </section>
 
+      {/* ── CTA ── */}
       <section className="section">
         <RegistrationCTA />
       </section>

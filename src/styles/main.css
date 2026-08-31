@@ -2057,16 +2057,18 @@ body::after {
   overflow: visible;
 }
 
-/* College name */
+/* College name — single line, large, prominent */
 .hero2-college {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   font-family: 'Orbitron', 'Inter', sans-serif;
-  font-size: clamp(0.65rem, 3.2vw, 0.9rem);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: rgba(220, 240, 255, 0.88);
-  line-height: 1.5;
+  font-size: clamp(0.78rem, 3.8vw, 1.15rem);
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  color: #ffffff;
+  line-height: 1.2;
   text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 24px rgba(103,232,249,0.5);
 }
 
 /* Chip */
@@ -2144,7 +2146,8 @@ body::after {
 .hero2-title-year {
   font-family: 'Orbitron', sans-serif;
   font-weight: 900;
-  font-size: 0.6em;
+  /* Same visual size as NEXTRON — 1em = same as parent font-size */
+  font-size: 1em;
   /* Fallback solid color */
   color: #ff4fd8;
   background: linear-gradient(135deg, #ff4fd8 0%, #c084fc 50%, #38bdf8 100%);
@@ -2153,8 +2156,6 @@ body::after {
   background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: hero2-year-shimmer 3.5s ease-in-out infinite;
-  align-self: flex-start;
-  margin-top: 0.08em;
   display: inline-block;
 }
 
@@ -2534,7 +2535,8 @@ body::after {
 /* ── Very small screens (≤380px) ───────────────────────────── */
 @media (max-width: 380px) {
   .hero2-title { font-size: clamp(1.8rem, 9vw, 2.4rem); }
-  .hero2-title-year { font-size: 0.55em; }
+  /* Keep '26 same size as NEXTRON — do NOT shrink it */
+  .hero2-title-year { font-size: 1em; }
   .hero2-info-row { gap: 5px; }
   .hero2-info-card { padding: 10px 5px; }
   .hero2-info-card strong { font-size: 0.68rem; }
@@ -2576,4 +2578,21 @@ body::after {
 }
 @media (prefers-reduced-motion: reduce) {
   .fluid-canvas { display: none !important; }
+}
+
+/* Registration close date notice */
+.registration-close-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 9px 14px;
+  border: 1px solid rgba(255, 79, 216, 0.35);
+  border-radius: var(--radius);
+  background: rgba(255, 79, 216, 0.08);
+  color: #fce7f3;
+  font-size: 0.9rem;
+}
+.registration-close-note strong {
+  color: #ff4fd8;
 }

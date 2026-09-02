@@ -98,6 +98,25 @@ export default function Contact() {
       >
         <MessageCircle size={26} aria-hidden="true" />
         <div>
+          <h2>Staff Coordinators</h2>
+          <p>
+            For queries about events, registration, or participation, reach out to the student coordinators —
+            Dr. S. Suvitha
+Assistant Professor
+M.E., Ph.D.
+Embedded System Technologies, I&CE, VLSI Design and Testing
+          </p>
+        </div>
+      </motion.section>
+       <motion.section
+        className="contact-message-card"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45 }}
+      >
+        <MessageCircle size={26} aria-hidden="true" />
+        <div>
           <h2>Student Coordinators</h2>
           <p>
             For queries about events, registration, or participation, reach out to the student coordinators —
@@ -105,6 +124,7 @@ export default function Contact() {
           </p>
         </div>
       </motion.section>
+
 
       <RegistrationCTA compact />
     </div>

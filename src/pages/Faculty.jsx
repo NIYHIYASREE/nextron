@@ -8,7 +8,6 @@ export default function Faculty() {
     <div className="page-shell">
       <SectionHeading eyebrow="Faculty" title="Department faculty and staff" align="center">
         The Department of Electronics and Communication Engineering, UCE Tindivanam.
-        Faculty photographs can be added as local WebP assets.
       </SectionHeading>
 
       {facultyGroups.map((group, gi) => (

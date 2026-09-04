@@ -7,7 +7,8 @@ export const siteConfig = {
   eventEndIso: "2026-09-16T18:00:00+05:30",
   registrationFormUrl:
     "https://docs.google.com/forms/d/e/1FAIpQLScUDw_F3YwuvSqBLB6w0QzO7xRyE0rsRh3-mDD350ihvsos3Q/viewform",
-  registrationFee: 250,
+  registrationFee: 200,
+  registrationFeeOnspot: 250,
   registrationCloseDate: "14 September 2026",
   venue: "University College of Engineering Tindivanam",
   department: "Department of Electronics and Communication Engineering",
@@ -17,11 +18,11 @@ export const siteConfig = {
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=University+College+of+Engineering,+Tindivanam,+Melpakkam,+Tamil+Nadu+604307",
   contact: {
-    email: "nextron26@ucet.in",
-    phone: "Contact details will be updated by the organizers",
+    email: "nextron26@aucet.in",
+    phone: "A. Priyaranjan: 9789791974 | S. Pradeep: 6385513884",
   },
   social: {
-    instagram: "",
+    instagram: "https://www.instagram.com/nextron_2k26",
     linkedin: "",
     youtube: "",
   },

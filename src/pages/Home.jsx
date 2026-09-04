@@ -99,8 +99,7 @@ export default function Home() {
       {/* ── Faculty ── */}
       <section className="section" id="faculty">
         <SectionHeading eyebrow="Faculty" title="Guided by the department leadership">
-          Faculty information uses local image support with professional placeholders when real photographs are not
-          available.
+          Meet the faculty of the Department of Electronics and Communication Engineering, UCE Tindivanam.
         </SectionHeading>
         <div className="faculty-grid faculty-grid--lead">
           {leadFaculty.map((person) => (

@@ -55,7 +55,8 @@ export default function Contact() {
             <Phone size={22} aria-hidden="true" />
           </div>
           <h2>Phone</h2>
-          <p>{siteConfig.contact.phone}</p>
+          <p>A. Priyaranjan: 9789791974</p>
+          <p>S. Pradeep: 6385513884</p>
         </motion.article>
 
         <motion.article
@@ -88,7 +89,24 @@ export default function Contact() {
         </motion.article>
       </div>
 
-      {/* Coordinator message */}
+      {/* Staff coordinator */}
+      <motion.section
+        className="contact-message-card"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.45 }}
+      >
+        <Mail size={26} aria-hidden="true" />
+        <div>
+          <h2>Staff Coordinator</h2>
+          <p><strong>Dr. S. Suvitha</strong></p>
+          <p>M.E., Ph.D., Assistant Professor</p>
+          <p>University College of Engineering, Tindivanam</p>
+        </div>
+      </motion.section>
+
+      {/* Student coordinators */}
       <motion.section
         className="contact-message-card"
         initial={{ opacity: 0, y: 16 }}
@@ -99,9 +117,11 @@ export default function Contact() {
         <MessageCircle size={26} aria-hidden="true" />
         <div>
           <h2>Student Coordinators</h2>
-          <p>
-            For queries about events, registration, or participation, reach out to the student coordinators —
-            Priyaranjan and Nandhini — or contact the event coordinator for the relevant event.
+          <p>A. Priyaranjan: 9789791974</p>
+          <p>S. Pradeep: 6385513884</p>
+          <p style={{ marginTop: "8px" }}>
+            For queries about events, registration, or participation, reach out to the student coordinators
+            or contact the event coordinator for the relevant event.
           </p>
         </div>
       </motion.section>

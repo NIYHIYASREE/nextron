@@ -22,7 +22,9 @@ export default function Register() {
       >
         <span className="eyebrow">Registration Open</span>
         <h1>Register for {siteConfig.eventName}</h1>
-        <p className="fee-display">₹{siteConfig.registrationFee} Symposium Registration Fee</p>
+        <p className="fee-display">
+          ₹{siteConfig.registrationFee} Online &nbsp;|&nbsp; ₹{siteConfig.registrationFeeOnspot} On-Spot
+        </p>
         <p className="registration-close-note">
           🗓 Registration closes on <strong>{siteConfig.registrationCloseDate}</strong>
         </p>
@@ -66,8 +68,8 @@ export default function Register() {
             <li>Do not share card details, CVV, UPI PIN, or banking credentials on this website.</li>
             <li>Payment instructions will be provided within the Google Form.</li>
             <li>
-              <span className="note-highlight">Free Fire</span> has a separate <strong>₹100 team fee</strong> payable
-              on-spot — this is distinct from the ₹{siteConfig.registrationFee} symposium registration fee.
+              <span className="note-highlight">Esports</span> has a separate <strong>₹100 team fee</strong> payable
+              on-spot — this is distinct from the ₹{siteConfig.registrationFee} online / ₹{siteConfig.registrationFeeOnspot} on-spot symposium registration fee.
             </li>
             <li>Multiple events can be selected in a single registration.</li>
           </ul>

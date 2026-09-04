@@ -4,7 +4,7 @@ export const events = [
     name: "Paper Presentation",
     category: "Technical",
     icon: "FileText",
-    coordinators: ["Dhinesh", "Nithya Sree"],
+    coordinators: ["Nithya Sree", "Dhinesh"],
     shortDescription: "Present original ideas, research, and engineering insights with clarity and technical depth.",
     description:
       "A platform for students to communicate innovative concepts, research outcomes, and practical ECE-focused solutions before a technical panel.",
@@ -21,7 +21,7 @@ export const events = [
     name: "Project Presentation",
     category: "Technical",
     icon: "Cpu",
-    coordinators: ["Ezhilarasan", "Visaha"],
+    coordinators: ["Visaha", "Ezhilarasan"],
     shortDescription: "Demonstrate working prototypes, embedded systems, circuits, or software-enabled innovations.",
     description:
       "Showcase a project that solves a real problem through engineering design, electronics, communication systems, automation, or computing.",
@@ -51,11 +51,11 @@ export const events = [
     ],
   },
   {
-    id: "free-fire",
-    name: "Free Fire",
+    id: "esports",
+    name: "Esports",
     category: "Non-Technical",
     icon: "Gamepad2",
-    coordinators: ["Poovarasan", "Abinaya"],
+    coordinators: ["Abinaya", "Poovarasan"],
     shortDescription: "Squad up for Clash Squad battles with clear rules and on-spot team coordination.",
     description:
       "A competitive mobile gaming event for registered symposium participants, conducted in Clash Squad mode.",
@@ -71,14 +71,14 @@ export const events = [
       "Decision of the event coordinators will be final.",
     ],
     note:
-      "The Rs. 100 Free Fire team fee is payable on spot and is separate from the Rs. 250 symposium registration fee.",
+      "The Rs. 100 Esports team fee is payable on spot and is separate from the Rs. 250 symposium registration fee.",
   },
   {
     id: "dance",
     name: "Dance",
     category: "Non-Technical",
     icon: "Music2",
-    coordinators: ["Mageshwareen", "Jenifa"],
+    coordinators: ["Jenifa", "Mageshwareen"],
     shortDescription: "Bring performance, rhythm, stage presence, and energy to the NEXTRON floor.",
     description:
       "A stage event for expressive solo or group performances judged on energy, synchronization, creativity, and presentation.",
@@ -91,8 +91,8 @@ export const events = [
     ],
   },
   {
-    id: "treasure-hunt",
-    name: "Treasure Hunt",
+    id: "memory-clash",
+    name: "Memory Clash",
     category: "Non-Technical",
     icon: "Map",
     coordinators: ["Dharshan", "Punitha"],
@@ -108,11 +108,11 @@ export const events = [
     ],
   },
   {
-    id: "cine-event",
-    name: "Cine Event",
+    id: "cine-cypher",
+    name: "Cine Cypher",
     category: "Non-Technical",
     icon: "Clapperboard",
-    coordinators: ["Ashwin Raj", "Janani"],
+    coordinators: ["Janani", "Ashwin Raj"],
     shortDescription: "Celebrate cinema knowledge, quick recall, and entertainment challenges.",
     description:
       "A cinema-themed event with engaging rounds built around movie knowledge, audio-visual clues, and team participation.",

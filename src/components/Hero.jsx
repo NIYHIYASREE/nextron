@@ -44,15 +44,16 @@ export default function Hero() {
       {/* ── Content wrapper ── */}
       <div className="hero2-content">
 
-        {/* College name — one line */}
-        <motion.p
+        {/* College name */}
+        <motion.h2
           className="hero2-college"
           variants={fade(0.05)}
           initial="hidden"
           animate="visible"
         >
-          UCE TINDIVANAM
-        </motion.p>
+          <span className="hero2-college-line">UNIVERSITY COLLEGE OF</span>
+          <span className="hero2-college-line">ENGINEERING TINDIVANAM</span>
+        </motion.h2>
 
         {/* Chip */}
         <motion.span
@@ -117,8 +118,8 @@ export default function Hero() {
           <div className="hero2-info-card">
             <Zap size={20} aria-hidden="true" />
             <div>
-              <strong>₹250</strong>
-              <span>REGISTRATION</span>
+              <strong>₹200 / ₹250</strong>
+              <span>ONLINE / ON-SPOT</span>
             </div>
           </div>
         </motion.div>

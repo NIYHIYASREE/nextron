@@ -2057,18 +2057,28 @@ body::after {
   overflow: visible;
 }
 
-/* College name — single line, large, prominent */
+/* College name — fluid, responsive */
 .hero2-college {
-  margin: 0 0 12px;
+  margin: 0 0 14px;
   font-family: 'Orbitron', 'Inter', sans-serif;
-  font-size: clamp(0.78rem, 3.8vw, 1.15rem);
-  font-weight: 800;
-  letter-spacing: 0.13em;
-  color: #ffffff;
-  line-height: 1.2;
+  font-size: clamp(0.72rem, 2.8vw, 1.6rem);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(103, 232, 249, 0.85);
+  line-height: 1.4;
   text-transform: uppercase;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  max-width: 100%;
+  text-shadow: 0 0 14px rgba(103,232,249,0.4);
+}
+
+.hero2-college-line {
+  display: block;
   white-space: nowrap;
-  text-shadow: 0 0 24px rgba(103,232,249,0.5);
 }
 
 /* Chip */
@@ -2518,6 +2528,7 @@ body::after {
 @media (min-width: 600px) {
   .hero2-content { max-width: 600px; }
   .hero2-why-grid { grid-template-columns: repeat(4, 1fr); }
+  .hero2-college { font-size: clamp(0.85rem, 2.4vw, 1.2rem); }
   .hero2-title { font-size: clamp(3.5rem, 10vw, 6rem); }
 }
 
@@ -2528,12 +2539,14 @@ body::after {
     padding-top: 48px;
     padding-bottom: 60px;
   }
+  .hero2-college { font-size: clamp(1rem, 2vw, 1.6rem); }
   .hero2-title { font-size: clamp(5rem, 9vw, 7.5rem); }
   .hero2-register-btn { min-height: 60px; font-size: 1.05rem; }
 }
 
 /* ── Very small screens (≤380px) ───────────────────────────── */
 @media (max-width: 380px) {
+  .hero2-college { font-size: clamp(0.6rem, 4.2vw, 0.85rem); }
   .hero2-title { font-size: clamp(1.8rem, 9vw, 2.4rem); }
   /* Keep '26 same size as NEXTRON — do NOT shrink it */
   .hero2-title-year { font-size: 1em; }

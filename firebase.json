@@ -1,6 +1,6 @@
 {
-  "auth": {
-    "providers": {}
+  "firestore": {
+    "rules": "firestore.rules"
   },
   "hosting": {
     "public": "dist",

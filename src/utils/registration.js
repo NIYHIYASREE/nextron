@@ -1,5 +1,9 @@
-import { siteConfig } from "../config/siteConfig.js";
-
+/**
+ * registration.js
+ * Navigation helper used by every "Register Now" button.
+ * Now navigates to the internal pass-based registration page
+ * instead of the old Google Form.
+ */
 export const openRegistrationForm = () => {
-  window.open(siteConfig.registrationFormUrl, "_blank", "noopener,noreferrer");
+  window.location.href = "/register";
 };

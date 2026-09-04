@@ -5,10 +5,8 @@ export const siteConfig = {
   eventDate: "16 September 2026",
   eventStartIso: "2026-09-16T09:00:00+05:30",
   eventEndIso: "2026-09-16T18:00:00+05:30",
-  registrationFormUrl:
-    "https://docs.google.com/forms/d/e/1FAIpQLScUDw_F3YwuvSqBLB6w0QzO7xRyE0rsRh3-mDD350ihvsos3Q/viewform",
-  registrationFee: 200,
-  registrationFeeOnspot: 250,
+  registrationFee: 200,          // online payment
+  registrationFeeOnspot: 250,    // on-spot payment
   registrationCloseDate: "14 September 2026",
   venue: "University College of Engineering Tindivanam",
   department: "Department of Electronics and Communication Engineering",

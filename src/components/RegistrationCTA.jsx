@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
@@ -17,8 +17,8 @@ export default function RegistrationCTA({ compact = false }) {
         <span className="eyebrow">Registration Open</span>
         <h2>Register for {siteConfig.eventName}</h2>
         <p>
-          ₹{siteConfig.registrationFee} symposium registration. Complete your details and event
-          selections through the official Google Form.
+          ₹{siteConfig.registrationFee} online · ₹{siteConfig.registrationFeeOnspot} on-spot.
+          No account needed — just fill in your details and get your pass instantly.
         </p>
       </div>
       <div className="cta-actions">
@@ -29,7 +29,7 @@ export default function RegistrationCTA({ compact = false }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.97 }}
         >
-          Register Now <ExternalLink size={17} aria-hidden="true" />
+          Register Now <ArrowRight size={17} aria-hidden="true" />
         </motion.button>
         <Link className="btn btn-ghost" to="/events">
           View Events <ArrowRight size={17} aria-hidden="true" />

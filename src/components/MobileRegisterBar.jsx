@@ -1,4 +1,4 @@
-import { ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { openRegistrationForm } from "../utils/registration.js";
 
 export default function MobileRegisterBar() {
@@ -17,7 +17,7 @@ export default function MobileRegisterBar() {
         aria-label="Register for NEXTRON'26"
       >
         REGISTER NOW
-        <ExternalLink size={15} aria-hidden="true" />
+        <ArrowRight size={15} aria-hidden="true" />
       </button>
     </div>
   );

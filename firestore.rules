@@ -1,0 +1,36 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /participants/{passId} {
+
+      // Anyone can register (create a new pass document)
+      allow create: if
+        request.resource.data.keys().hasAll([
+          'passId', 'fullName', 'email', 'registerNumber',
+          'department', 'year', 'collegeName', 'phoneNumber',
+          'foodPreference', 'selectedEvents', 'registrationFee',
+          'payment', 'pass', 'checkIn', 'registeredAt'
+        ])
+        && request.resource.data.passId is string
+        && request.resource.data.fullName is string
+        && request.resource.data.email is string
+        && request.resource.data.selectedEvents is list
+        && request.resource.data.selectedEvents.size() > 0;
+
+      // Public read allowed — needed for:
+      //   - Retrieve pass page (participant looks up their own pass)
+      //   - Admin dashboard (organiser lists/searches all registrations)
+      //   - QR scanner (looks up pass by ID)
+      allow read: if true;
+
+      // Updates allowed — needed for:
+      //   - Admin marking on-spot payment as PAID
+      //   - Admin marking participant as checked-in
+      allow update: if true;
+
+      // No deletes from client
+      allow delete: if false;
+    }
+  }
+}

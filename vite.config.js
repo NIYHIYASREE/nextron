@@ -70,6 +70,9 @@ export default defineConfig({
             if (id.includes("lucide-react")) {
               return "vendor-icons";
             }
+            if (id.includes("firebase") || id.includes("@firebase")) {
+              return "vendor-firebase";
+            }
             /* All other node_modules → one shared vendor chunk */
             return "vendor-misc";
           }
@@ -94,6 +97,9 @@ export default defineConfig({
       "react-router-dom",
       "framer-motion",
       "lucide-react",
+      "firebase/app",
+      "firebase/firestore",
+      "qrcode",
     ],
   },
 });

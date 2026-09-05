@@ -3650,3 +3650,562 @@ body::after {
   gap: 10px;
 }
 .scanner-manual h3 { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+/* pass-body full width (no QR column) */
+.pass-body--full { display: block; }
+.pass-body--full .pass-info { width: 100%; }
+
+
+/* ==========================================================
+   SUPER PASS — NEXTRON'2K26
+   ========================================================== */
+
+.pp-page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 36px 16px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ── Banners ─────────────────────────────────────────────── */
+.pp-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.pp-banner--paid {
+  background: linear-gradient(135deg, rgba(94,234,212,0.15), rgba(56,189,248,0.1));
+  border: 1px solid rgba(94,234,212,0.45);
+  color: #5eead4;
+}
+.pp-banner--pending {
+  background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(245,158,11,0.08));
+  border: 1px solid rgba(251,191,36,0.4);
+  color: #fbbf24;
+}
+
+.pp-tip {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(167,139,250,0.08);
+  border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.pp-tip svg { color: #fbbf24; flex-shrink: 0; }
+.pp-tip strong { color: var(--violet); }
+
+/* ── Card wrapper ────────────────────────────────────────── */
+.pp-card-wrap {
+  perspective: 1200px;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   THE PASS CARD
+═══════════════════════════════════════════════════════════ */
+.pp-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background:
+    linear-gradient(160deg,
+      #0b1a38 0%,
+      #0d1230 30%,
+      #130b28 60%,
+      #0a1535 100%
+    );
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 1.5px rgba(103,232,249,0.35),
+    0 0 60px rgba(103,232,249,0.12),
+    0 0 120px rgba(167,139,250,0.1),
+    0 32px 80px rgba(0,0,0,0.6);
+}
+
+/* Animated glow orbs */
+.pp-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  z-index: 0;
+}
+.pp-orb--1 {
+  width: 260px; height: 260px;
+  background: radial-gradient(circle, rgba(103,232,249,0.18), transparent 70%);
+  top: -80px; left: -60px;
+  animation: orbFloat1 8s ease-in-out infinite;
+}
+.pp-orb--2 {
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(167,139,250,0.2), transparent 70%);
+  bottom: 20px; right: -40px;
+  animation: orbFloat2 10s ease-in-out infinite;
+}
+.pp-orb--3 {
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(255,79,216,0.12), transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation: orbFloat3 6s ease-in-out infinite;
+}
+@keyframes orbFloat1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(20px, 15px) scale(1.08); }
+}
+@keyframes orbFloat2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-15px, -20px) scale(1.06); }
+}
+@keyframes orbFloat3 {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+/* Shine sweep */
+.pp-shine {
+  position: absolute;
+  inset: 0;
+  width: 60%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.06) 50%,
+    transparent 70%
+  );
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Corner accent brackets */
+.pp-corner {
+  position: absolute;
+  width: 18px; height: 18px;
+  z-index: 5;
+  pointer-events: none;
+}
+.pp-corner--tl { top: 10px;  left: 10px;  border-top: 2px solid var(--cyan);  border-left: 2px solid var(--cyan); }
+.pp-corner--tr { top: 10px;  right: 10px; border-top: 2px solid var(--cyan);  border-right: 2px solid var(--cyan); }
+.pp-corner--bl { bottom: 10px; left: 10px;  border-bottom: 2px solid var(--cyan); border-left: 2px solid var(--cyan); }
+.pp-corner--br { bottom: 10px; right: 10px; border-bottom: 2px solid var(--cyan); border-right: 2px solid var(--cyan); }
+
+/* All inner content above orbs */
+.pp-top-strip,
+.pp-hero,
+.pp-tear,
+.pp-pass-badge-row,
+.pp-info-grid,
+.pp-events-row,
+.pp-payment-bar,
+.pp-foot {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── TOP STRIP ───────────────────────────────────────────── */
+.pp-top-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid rgba(103,232,249,0.12);
+  gap: 12px;
+}
+
+.pp-top-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pp-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter:
+    drop-shadow(0 0 8px rgba(103,232,249,0.5))
+    drop-shadow(0 0 20px rgba(103,232,249,0.25));
+  border-radius: 8px;
+}
+
+.pp-college-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  min-width: 0;
+}
+.pp-college-name {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(200,230,255,0.9);
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.pp-college-sub {
+  font-size: 0.56rem;
+  color: rgba(148,200,255,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.pp-status-chip {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pp-status-chip--paid {
+  background: rgba(94,234,212,0.15);
+  border: 1.5px solid rgba(94,234,212,0.5);
+  color: #5eead4;
+  box-shadow: 0 0 12px rgba(94,234,212,0.2);
+}
+.pp-status-chip--pending {
+  background: rgba(251,191,36,0.12);
+  border: 1.5px solid rgba(251,191,36,0.5);
+  color: #fbbf24;
+  box-shadow: 0 0 12px rgba(251,191,36,0.15);
+}
+
+/* ── HERO TITLE ──────────────────────────────────────────── */
+.pp-hero {
+  padding: 22px 22px 18px;
+  text-align: center;
+  border-bottom: 1px solid rgba(103,232,249,0.08);
+}
+
+.pp-event-brand {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pp-brand-next {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #67e8f9 0%, #38bdf8 40%, #a78bfa 80%, #ff4fd8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  filter: drop-shadow(0 0 20px rgba(103,232,249,0.5));
+}
+.pp-brand-year {
+  font-family: "Orbitron", sans-serif;
+  font-size: clamp(1.4rem, 5vw, 2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
+}
+
+.pp-event-tagline {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(148,211,255,0.6);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.pp-event-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: rgba(168,200,255,0.55);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pp-dot { color: var(--cyan); font-size: 0.45rem; }
+
+/* ── TEAR LINE ───────────────────────────────────────────── */
+.pp-tear {
+  display: flex;
+  align-items: center;
+  padding: 0 0;
+  margin: 0;
+  height: 0;
+  position: relative;
+}
+.pp-tear-line {
+  flex: 1;
+  border-top: 2px dashed rgba(103,232,249,0.25);
+  margin: 0 18px;
+}
+.pp-tear-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid rgba(103,232,249,0.2);
+  flex-shrink: 0;
+  position: absolute;
+}
+.pp-tear-circle--left  { left: -10px; }
+.pp-tear-circle--right { right: -10px; }
+
+/* ── PASS BADGE ──────────────────────────────────────────── */
+.pp-pass-badge-row {
+  display: flex;
+  justify-content: center;
+  padding: 12px 22px 4px;
+}
+.pp-pass-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(103,232,249,0.08);
+  border: 1px solid rgba(103,232,249,0.3);
+  padding: 4px 18px;
+  border-radius: 20px;
+}
+
+/* ── INFO GRID ───────────────────────────────────────────── */
+.pp-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  padding: 10px 22px 4px;
+}
+
+.pp-info-block {
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid rgba(103,232,249,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pp-info-block--name   { grid-column: 1 / -1; }
+.pp-info-block--college { grid-column: 1 / -1; }
+
+.pp-info-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(148,200,255,0.45);
+}
+.pp-info-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #e8f4ff;
+  word-break: break-word;
+}
+.pp-info-value--xl {
+  font-size: 1.15rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff, #c8e8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.01em;
+}
+.pp-info-value--id {
+  font-family: "Orbitron", monospace;
+  font-size: 0.95rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--violet), #ff4fd8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.06em;
+}
+
+/* ── EVENTS ──────────────────────────────────────────────── */
+.pp-events-row {
+  padding: 14px 22px;
+  border-top: 1px solid rgba(103,232,249,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pp-events-label {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(148,200,255,0.45);
+}
+.pp-events-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+.pp-event-chip {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(103,232,249,0.1);
+  border: 1px solid rgba(103,232,249,0.3);
+  color: var(--cyan);
+  letter-spacing: 0.03em;
+}
+
+/* ── PAYMENT BAR ─────────────────────────────────────────── */
+.pp-payment-bar {
+  margin: 0 14px 14px;
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pp-payment-bar--paid {
+  background: linear-gradient(135deg, rgba(94,234,212,0.12), rgba(56,189,248,0.08));
+  border: 1px solid rgba(94,234,212,0.35);
+}
+.pp-payment-bar--pending {
+  background: linear-gradient(135deg, rgba(251,191,36,0.1), rgba(245,158,11,0.06));
+  border: 1px solid rgba(251,191,36,0.35);
+}
+
+.pp-payment-left { display: flex; flex-direction: column; gap: 2px; }
+.pp-payment-label-text {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(148,200,255,0.45);
+}
+.pp-payment-value-text {
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.pp-payment-bar--paid    .pp-payment-value-text { color: #5eead4; }
+.pp-payment-bar--pending .pp-payment-value-text { color: #fbbf24; }
+
+.pp-payment-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.pp-payment-method {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(148,200,255,0.5);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pp-payment-txn {
+  font-size: 0.6rem;
+  color: rgba(148,200,255,0.35);
+  font-family: monospace;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────── */
+.pp-foot {
+  background: rgba(5, 10, 25, 0.6);
+  border-top: 1px solid rgba(103,232,249,0.12);
+  padding: 12px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+}
+.pp-foot-brand {
+  font-family: "Orbitron", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  background: linear-gradient(135deg, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.pp-foot-dept  { font-size: 0.6rem; color: rgba(148,200,255,0.45); letter-spacing: 0.04em; }
+.pp-foot-univ  { font-size: 0.58rem; color: rgba(148,200,255,0.3); }
+
+/* ── Action buttons ──────────────────────────────────────── */
+.pp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.pp-retrieve-tip {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ── Print: only show the pass card ─────────────────────── */
+@media print {
+  .pp-page > *:not(.pp-card-wrap) { display: none !important; }
+  .pp-card {
+    box-shadow: none !important;
+    border: 1.5px solid #ccc !important;
+  }
+  .pp-orb, .pp-shine { display: none !important; }
+}
+
+/* ── html2canvas export mode — disable effects that break canvas ── */
+.pp-card--export .pp-orb,
+.pp-card--export .pp-shine { display: none !important; }
+.pp-card--export {
+  background: #0b1a38 !important;
+  box-shadow: none !important;
+}
+
+/* ── UTR confirmation box ───────────────────────────────────── */
+.utr-confirm-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 4px;
+}
+.utr-confirm-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(94,234,212,0.08);
+  border: 1px solid rgba(94,234,212,0.25);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.utr-confirm-icon { color: var(--green); flex-shrink: 0; margin-top: 1px; }
+.utr-confirm-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

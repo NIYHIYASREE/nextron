@@ -4,16 +4,15 @@ export const events = [
     name: "Paper Presentation",
     category: "Technical",
     icon: "FileText",
-    coordinators: ["Nithya Sree", "Dhinesh"],
     shortDescription: "Present original ideas, research, and engineering insights with clarity and technical depth.",
     description:
       "A platform for students to communicate innovative concepts, research outcomes, and practical ECE-focused solutions before a technical panel.",
     rules: [
-      "Individual or team participation is allowed based on coordinator instructions.",
+      "Individual or team participation is allowed based on event instructions.",
       "Presentations must be original and technically relevant.",
       "Participants should bring their presentation file in a compatible format.",
-      "Time limits and judging criteria will be announced by the coordinators.",
-      "The judges' and coordinators' decisions will be final.",
+      "Time limits and judging criteria will be announced before the event.",
+      "The judges' decisions will be final.",
     ],
   },
   {
@@ -21,7 +20,6 @@ export const events = [
     name: "Project Presentation",
     category: "Technical",
     icon: "Cpu",
-    coordinators: ["Visaha", "Ezhilarasan"],
     shortDescription: "Demonstrate working prototypes, embedded systems, circuits, or software-enabled innovations.",
     description:
       "Showcase a project that solves a real problem through engineering design, electronics, communication systems, automation, or computing.",
@@ -30,7 +28,7 @@ export const events = [
       "Participants are responsible for bringing required components and files.",
       "The project should be explained with problem statement, method, and outcome.",
       "Originality, practicality, and presentation quality will be considered.",
-      "Coordinator instructions must be followed throughout the event.",
+      "Event instructions must be followed throughout.",
     ],
   },
   {
@@ -38,7 +36,6 @@ export const events = [
     name: "Technical Quiz",
     category: "Technical",
     icon: "BrainCircuit",
-    coordinators: ["Gautham", "Bushra"],
     shortDescription: "Compete across electronics, communication, logic, technology, and engineering fundamentals.",
     description:
       "A fast-paced quiz designed to test technical awareness, fundamentals, logical thinking, and current technology knowledge.",
@@ -55,7 +52,6 @@ export const events = [
     name: "Esports",
     category: "Non-Technical",
     icon: "Gamepad2",
-    coordinators: ["Abinaya", "Poovarasan"],
     shortDescription: "Squad up for Clash Squad battles with clear rules and on-spot team coordination.",
     description:
       "A competitive mobile gaming event for registered symposium participants, conducted in Clash Squad mode.",
@@ -64,28 +60,27 @@ export const events = [
       "Each member should register separately for the symposium.",
       "Registration fee: Rs. 100 per team on spot.",
       "Mode: Clash Squad",
-      "All participants must follow the event coordinator's instructions.",
+      "All participants must follow the event instructions.",
       "Any form of cheating will result in disqualification.",
       "No grenade.",
       "No rooftop.",
-      "Decision of the event coordinators will be final.",
+      "Decision of the event organizers will be final.",
     ],
     note:
       "The Rs. 100 Esports team fee is payable on spot and is separate from the Rs. 250 symposium registration fee.",
   },
   {
     id: "dance",
-    name: "Dance",
+    name: "Sound Party",
     category: "Non-Technical",
     icon: "Music2",
-    coordinators: ["Jenifa", "Mageshwareen"],
     shortDescription: "Bring performance, rhythm, stage presence, and energy to the NEXTRON floor.",
     description:
       "A stage event for expressive solo or group performances judged on energy, synchronization, creativity, and presentation.",
     rules: [
       "Participants should report before the scheduled performance slot.",
-      "Tracks must be submitted in the format requested by coordinators.",
-      "Performance duration and team limits will be announced by coordinators.",
+      "Tracks must be submitted in the format requested before the event.",
+      "Performance duration and team limits will be announced before the event.",
       "Content must be suitable for a college symposium stage.",
       "Judges' decisions will be final.",
     ],
@@ -95,16 +90,15 @@ export const events = [
     name: "Memory Clash",
     category: "Non-Technical",
     icon: "Map",
-    coordinators: ["Dharshan", "Punitha"],
     shortDescription: "Decode clues, move fast, and solve campus challenges with your team.",
     description:
       "A collaborative clue-solving event that blends observation, logic, speed, and teamwork across the event space.",
     rules: [
       "Teams must stay within the permitted hunt area.",
       "Clues and tasks must not be damaged or removed unless instructed.",
-      "Coordinator instructions and time limits must be followed.",
+      "Event instructions and time limits must be followed.",
       "Unfair assistance or tampering leads to disqualification.",
-      "Final decisions rest with the event coordinators.",
+      "Final decisions rest with the event organizers.",
     ],
   },
   {
@@ -112,7 +106,6 @@ export const events = [
     name: "Cine Cypher",
     category: "Non-Technical",
     icon: "Clapperboard",
-    coordinators: ["Janani", "Ashwin Raj"],
     shortDescription: "Celebrate cinema knowledge, quick recall, and entertainment challenges.",
     description:
       "A cinema-themed event with engaging rounds built around movie knowledge, audio-visual clues, and team participation.",
@@ -121,7 +114,7 @@ export const events = [
       "Participants must avoid using phones or external help during active rounds.",
       "Answers must be submitted within the given time.",
       "Tie-breakers may be conducted when required.",
-      "Coordinator decisions will be final.",
+      "Organizer decisions will be final.",
     ],
   },
 ];

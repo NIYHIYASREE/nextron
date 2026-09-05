@@ -38,11 +38,6 @@ export default function EventCard({ event, index = 0 }) {
       </div>
       <h3>{event.name}</h3>
       <p>{event.shortDescription}</p>
-      <div className="coordinator-list" aria-label={`${event.name} coordinators`}>
-        {event.coordinators.map((name) => (
-          <span key={name}>{name}</span>
-        ))}
-      </div>
       <div className="card-actions">
         <Link className="text-link" to={`/events/${event.id}`}>
           View Details

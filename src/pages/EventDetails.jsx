@@ -114,29 +114,15 @@ export default function EventDetails() {
 
           {/* Aside */}
           <ScrollReveal as="aside" className="detail-side" direction="right" delay={0.1}>
-            <h2>Coordinators</h2>
-            <div className="coordinator-list large">
-              {event.coordinators.map((name, i) => (
-                <motion.span
-                  key={name}
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.07, ease: EASE }}
-                >
-                  {name}
-                </motion.span>
-              ))}
-            </div>
             <motion.div
               className="fee-note"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: 0.18, ease: EASE }}
+              transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
             >
               <strong>Symposium Registration</strong>
-              <p>Rs. {siteConfig.registrationFee} through official registration instructions.</p>
+              <p>Rs. {siteConfig.registrationFee} online · Rs. {siteConfig.registrationFeeOnspot} on-spot.</p>
               {event.note && <p className="event-special-note">{event.note}</p>}
             </motion.div>
           </ScrollReveal>

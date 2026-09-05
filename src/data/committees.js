@@ -4,7 +4,7 @@ export const committees = [
   { title: "Technical Quiz", category: "Technical Events Committee", members: ["Gautham", "Bushra"] },
   { title: "Project Presentation", category: "Technical Events Committee", members: ["Visaha", "Ezhilarasan"] },
   { title: "Esports", category: "Non-Technical Events Committee", members: ["Abinaya", "Poovarasan"] },
-  { title: "Dance", category: "Non-Technical Events Committee", members: ["Jenifa", "Mageshwareen"] },
+  { title: "Sound Party", category: "Non-Technical Events Committee", members: ["Jenifa", "Mageshwareen"] },
   { title: "Memory Clash", category: "Non-Technical Events Committee", members: ["Dharshan", "Punitha"] },
   { title: "Cine Cypher", category: "Non-Technical Events Committee", members: ["Janani", "Ashwin Raj"] },
   { title: "Registration and Reception", members: ["Seetha", "Bala Sundaram"] },

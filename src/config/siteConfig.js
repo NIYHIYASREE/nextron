@@ -5,7 +5,7 @@ export const siteConfig = {
   eventDate: "16 September 2026",
   eventStartIso: "2026-09-16T09:00:00+05:30",
   eventEndIso: "2026-09-16T18:00:00+05:30",
-  registrationFee: 200,          // online payment
+  registrationFee: 1,            // online payment (testing)
   registrationFeeOnspot: 250,    // on-spot payment
   registrationCloseDate: "14 September 2026",
   venue: "University College of Engineering Tindivanam",

@@ -5,13 +5,11 @@ import Hero from "../components/Hero.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import EventCard from "../components/EventCard.jsx";
 import FacultyCard from "../components/FacultyCard.jsx";
-import CommitteeCard from "../components/CommitteeCard.jsx";
 import LocationSection from "../components/LocationSection.jsx";
 import RegistrationCTA from "../components/RegistrationCTA.jsx";
 import ScrollReveal from "../components/ScrollReveal.jsx";
 import { events } from "../data/events.js";
 import { facultyGroups } from "../data/faculty.js";
-import { committees } from "../data/committees.js";
 import { symposiumHighlights } from "../data/symposium.js";
 import { siteConfig } from "../config/siteConfig.js";
 
@@ -25,7 +23,7 @@ const SIGNAL_CARDS = [
 ];
 
 export default function Home() {
-  const leadFaculty = facultyGroups.slice(0, 2).flatMap((group) => group.people);
+  const allFaculty = facultyGroups.flatMap((group) => group.people);
 
   return (
     <>
@@ -102,25 +100,10 @@ export default function Home() {
           Meet the faculty of the Department of Electronics and Communication Engineering, UCE Tindivanam.
         </SectionHeading>
         <div className="faculty-grid faculty-grid--lead">
-          {leadFaculty.map((person) => (
+          {allFaculty.map((person) => (
             <FacultyCard person={person} key={person.name} />
           ))}
         </div>
-      </section>
-
-      {/* ── Committee ── */}
-      <section className="section" id="committee">
-        <SectionHeading eyebrow="Committee" title="Student teams powering NEXTRON'26" />
-        <div className="committee-grid committee-grid--preview">
-          {committees.slice(0, 6).map((committee) => (
-            <CommitteeCard committee={committee} key={`${committee.category || "core"}-${committee.title}`} />
-          ))}
-        </div>
-        <ScrollReveal className="section-link-row" delay={0.1}>
-          <Link className="btn btn-secondary" to="/committee">
-            View Committee
-          </Link>
-        </ScrollReveal>
       </section>
 
       {/* ── Location ── */}

@@ -5,31 +5,28 @@ import { siteConfig } from "../config/siteConfig.js";
 export default function LocationSection() {
   return (
     <section className="location-section">
+
+      {/* ── Real Google Maps embed ── */}
       <motion.div
-        className="map-panel"
-        aria-hidden="true"
-        initial={{ opacity: 0, scale: 0.96 }}
+        className="map-panel map-panel--real"
+        initial={{ opacity: 0, scale: 0.97 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="map-grid" />
-        <div className="map-pin-wrap">
-          <motion.div
-            className="map-pin-ring"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-          />
-          <motion.div
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <MapPin size={32} />
-          </motion.div>
-        </div>
-        <span className="map-label">UCE Tindivanam</span>
+        <iframe
+          title="University College of Engineering Tindivanam — Google Maps"
+          src="https://maps.google.com/maps?q=12.2625577,79.6568653&z=17&output=embed"
+          width="100%"
+          height="100%"
+          style={{ border: 0, display: "block" }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
       </motion.div>
 
+      {/* ── Address copy ── */}
       <motion.div
         className="location-copy"
         initial={{ opacity: 0, x: 24 }}

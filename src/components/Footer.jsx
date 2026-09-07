@@ -12,7 +12,6 @@ const quickLinks = [
   ["About", "/about"],
   ["Events", "/events"],
   ["Faculty", "/faculty"],
-  ["Committee", "/committee"],
   ["Location", "/location"],
   ["Contact", "/contact"],
   ["Register", "/register"],
@@ -149,6 +148,7 @@ export default function Footer() {
         transition={{ duration: 0.5, delay: 0.15 }}
       >
         <p>{siteConfig.eventName} &nbsp;·&nbsp; {siteConfig.universityLine} &nbsp;·&nbsp; {siteConfig.eventDate}</p>
+        <p className="footer-designed-by">Website designed by <strong>Nithiyasree</strong> — ECE</p>
       </motion.div>
     </footer>
   );

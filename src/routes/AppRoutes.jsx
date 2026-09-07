@@ -11,7 +11,6 @@ const About       = lazy(() => import("../pages/About.jsx"));
 const Events      = lazy(() => import("../pages/Events.jsx"));
 const EventDetails= lazy(() => import("../pages/EventDetails.jsx"));
 const Faculty     = lazy(() => import("../pages/Faculty.jsx"));
-const Committee   = lazy(() => import("../pages/Committee.jsx"));
 const Location    = lazy(() => import("../pages/Location.jsx"));
 const Contact     = lazy(() => import("../pages/Contact.jsx"));
 const Register    = lazy(() => import("../pages/Register.jsx"));
@@ -30,7 +29,6 @@ export default function AppRoutes() {
         <Route path="/events"      element={<Events />} />
         <Route path="/events/:slug" element={<EventDetails />} />
         <Route path="/faculty"     element={<Faculty />} />
-        <Route path="/committee"   element={<Committee />} />
         <Route path="/location"    element={<Location />} />
         <Route path="/contact"     element={<Contact />} />
         <Route path="/register"    element={<Register />} />

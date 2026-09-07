@@ -6,7 +6,7 @@ export const siteConfig = {
   eventStartIso: "2026-09-16T09:00:00+05:30",
   eventEndIso: "2026-09-16T18:00:00+05:30",
   registrationFormUrl:
-    "https://docs.google.com/forms/d/e/1FAIpQLScUDw_F3YwuvSqBLB6w0QzO7xRyE0rsRh3-mDD350ihvsos3Q/viewform",
+    "https://docs.google.com/forms/d/e/1FAIpQLSdmUw9uos1SeB1T40pRz2gzWCXrCgdf0U2lsxOQX5AcJUVhwA/viewform?usp=publish-editor",
   registrationFee: 200,
   registrationFeeOnspot: 250,
   registrationCloseDate: "14 September 2026",
@@ -16,7 +16,7 @@ export const siteConfig = {
   address: "Melpakkam Village, Villupuram District, Tamil Nadu - 604 001",
   shortLocation: "Melpakkam, Tamil Nadu",
   mapsUrl:
-    "https://www.google.com/maps/search/?api=1&query=University+College+of+Engineering,+Tindivanam,+Melpakkam,+Tamil+Nadu+604307",
+    "https://maps.app.goo.gl/peCRwJgsrcixZibN9",
   contact: {
     email: "nextron26@aucet.in",
     phone: "A. Priyaranjan: 9789791974 | S. Pradeep: 6385513884",

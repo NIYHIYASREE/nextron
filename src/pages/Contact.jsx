@@ -100,7 +100,7 @@ export default function Contact() {
         <div>
           <h2>Staff Coordinators</h2>
           <p>
-            For queries about events, registration, or participation, reach out to the student coordinators —
+            For queries about events, registration, or participation, reach out to the staff coordinators —
             Dr. S. Suvitha
 Assistant Professor
 M.E., Ph.D.
@@ -120,8 +120,10 @@ Embedded System Technologies, I&CE, VLSI Design and Testing
           <h2>Student Coordinators</h2>
           <p>
             For queries about events, registration, or participation, reach out to the student coordinators —
-            Priyaranjan and Nandhini — or contact the event coordinator for the relevant event.
+            Priyaranjan, Nandhini, and Venkateswaran J
           </p>
+          <p><strong>Venkateswaran J</strong></p>
+          <p>+91 63741 56056</p>
         </div>
       </motion.section>
 

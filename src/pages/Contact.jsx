@@ -125,19 +125,25 @@ export default function Contact() {
         <div>
           <h2>Student Coordinators</h2>
           <p>
-            <strong>A. Priyaranjan</strong> — <a href="tel:+919789791974" style={{ color: "var(--cyan)" }}>+91 97897 91974</a>
-            <br />
-            <span style={{ fontSize: "0.82rem", color: "var(--muted)" }}>Primary contact — reach out for any event or registration queries.</span>
+            <strong>Priyaranjan  A</strong> — <a href="tel:+919789791974" style={{ color: "var(--cyan)" }}>+91 97897 91974</a>
+            
+            <br/>
           </p>
           <p style={{ marginTop: "10px" }}>
             <strong>Vignesh J.V</strong> — <a href="tel:+918667489800" style={{ color: "var(--cyan)" }}>+91 86674 89800</a>
             <br />
-            <span style={{ fontSize: "0.82rem", color: "var(--muted)" }}>Secondary contact.</span>
+           
           </p>
-          <p style={{ marginTop: "10px" }}>
-            <strong>S. Pradeep</strong> — <a href="tel:+916385513884" style={{ color: "var(--cyan)" }}>+91 63855 13884</a>
+<p style={{ marginTop: "10px" }}>
+            <strong>Venkateswarn  J</strong> — <a href="tel:+916385513884" style={{ color: "var(--cyan)" }}>+91 63741 56056</a>
             <br />
-            <span style={{ fontSize: "0.82rem", color: "var(--muted)" }}>Secondary contact.</span>
+            
+          </p>
+
+          <p style={{ marginTop: "10px" }}>
+            <strong>Pradeep S</strong> — <a href="tel:+916385513884" style={{ color: "var(--cyan)" }}>+91 63855 13884</a>
+            <br />
+            
           </p>
         </div>
       </motion.section>

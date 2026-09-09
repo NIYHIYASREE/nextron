@@ -55,11 +55,7 @@ export default function Contact() {
             <Phone size={22} aria-hidden="true" />
           </div>
           <h2>Phone</h2>
-          <p>
-            <strong>Student Coordinators:</strong><br/>
-            Priyaranjan, Nandhini, and Venkateswaran J<br/>
-            <strong>Venkateswaran J: +91 63741 56056</strong>
-          </p>
+          <p>{siteConfig.contact.phone}</p>
         </motion.article>
 
         <motion.article

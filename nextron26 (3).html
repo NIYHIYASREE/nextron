@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXTRON '26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+  :root{
+    --bg-1:#050912;
+    --bg-2:#0b1630;
+    --cyan:#4be8ff;
+    --violet:#a06bff;
+    --amber:#ffb347;
+    --steel:#c7d4e6;
+    --steel-dark:#5a6a86;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0; padding:0; width:100%; height:100%;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(75,232,255,0.10), transparent 55%),
+      radial-gradient(ellipse at 85% 110%, rgba(160,107,255,0.14), transparent 55%),
+      linear-gradient(180deg, var(--bg-1), var(--bg-2));
+    font-family:'Space Grotesk', sans-serif;
+    color:var(--steel);
+    overflow:hidden;
+  }
+  .grid-floor{
+    position:fixed; left:0; right:0; bottom:0; height:40%;
+    background-image:
+      linear-gradient(rgba(75,232,255,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(75,232,255,0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            mask-image: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    pointer-events:none;
+  }
+  .topbar{
+    position:relative; z-index:3;
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 26px clamp(18px, 4vw, 56px) 0;
+  }
+  .brandmark{ font-family:'Orbitron', sans-serif; font-weight:700; font-size:13px; letter-spacing:0.18em; color: var(--steel-dark); }
+  .brandmark span{ color: var(--cyan); }
+  .tagline{ font-size:13px; color: var(--steel-dark); }
+
+  .stage{
+    position:relative; width:100%; height:100%; min-height: 560px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding: 0 4vw;
+  }
+  .title-wrap{ position:relative; display:inline-block; padding-top: 130px; }
+
+  h1.title{
+    margin:0; display:flex; align-items:flex-end;
+    font-family:'Orbitron', sans-serif; font-weight:900;
+    font-size: clamp(42px, 9.5vw, 128px);
+    line-height:1;
+    letter-spacing: clamp(6px, 1.4vw, 18px);
+    -webkit-user-select:none; user-select:none;
+    white-space:nowrap;
+  }
+  .letter{
+    display:inline-block;
+    background: linear-gradient(180deg, #eef6ff 0%, var(--steel) 55%, var(--steel-dark) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    position:relative; cursor:pointer;
+    touch-action: manipulation;
+    filter: drop-shadow(0 0 18px rgba(75,232,255,0.15));
+  }
+  .letter .underline{
+    position:absolute; left:6%; right:6%; bottom:-0.16em; height:3px;
+    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+    opacity:0; transform: scaleX(0.4);
+    transition: opacity .3s ease, transform .3s ease;
+  }
+  .letter.lit .underline{ opacity:1; transform: scaleX(1); }
+  .letter.guard .underline{ background: linear-gradient(90deg, transparent, var(--amber), transparent); }
+
+  .suffix{ font-size: 0.42em; margin-left: 0.12em; color: var(--amber); -webkit-text-fill-color: var(--amber); background:none; align-self:flex-start; margin-top: 0.35em; }
+  .apostrophe{ font-size: 0.5em; margin: 0 0.02em; align-self:flex-start; margin-top:0.1em; color: var(--steel-dark); -webkit-text-fill-color: var(--steel-dark); background:none; }
+
+  .subline{ margin-top: 22px; text-align:center; font-size: clamp(12px, 1.6vw, 15px); letter-spacing: 0.06em; color: var(--steel-dark); }
+
+  /* ---------- Robot (small + cute) ---------- */
+  .robot{
+    position:absolute; left:0; top:0;
+    width:46px; height:68px;
+    will-change: transform;
+    --accent: var(--cyan);
+  }
+  .robot-body{ position:relative; width:100%; height:100%; transform-origin: 50% 100%; }
+  .shadow{
+    position:absolute; bottom:-5px; left:50%; width:30px; height:6px;
+    background: radial-gradient(ellipse at center, rgba(255,255,255,0.28), transparent 70%);
+    transform: translateX(-50%); border-radius:50%; opacity:0.7;
+  }
+  .head{
+    position:absolute; top:0; left:50%; width:28px; height:22px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #ffffff, #d8e2f4);
+    border-radius:14px 14px 10px 10px;
+    border: 2px solid #2a3550;
+    box-shadow: 0 0 10px rgba(255,255,255,0.25);
+  }
+  .antenna{ position:absolute; top:-8px; left:50%; width:2px; height:8px; background: var(--steel-dark); transform: translateX(-50%); }
+  .antenna::after{
+    content:''; position:absolute; top:-5px; left:50%; width:6px; height:6px;
+    background: var(--accent); border-radius:50%; transform: translateX(-50%);
+    box-shadow: 0 0 8px 2px var(--accent);
+  }
+  .eye{ position:absolute; top:8px; width:5.5px; height:6.5px; background:#182338; border-radius:50%; }
+  .eye.l{ left:6px; } .eye.r{ right:6px; }
+  .eye::after{ content:''; position:absolute; top:1px; left:1px; width:2px; height:2px; background:#fff; border-radius:50%; }
+  .cheek{ position:absolute; top:14px; width:5px; height:3px; background: var(--accent); border-radius:50%; opacity:0.55; }
+  .cheek.l{ left:1px; } .cheek.r{ right:1px; }
+  .torso{
+    position:absolute; top:18px; left:50%; width:26px; height:24px;
+    transform: translateX(-50%);
+    background: linear-gradient(180deg, #2a3550, #16213b);
+    border-radius:12px; border: 2px solid #384a72;
+  }
+  .torso::after{
+    content:''; position:absolute; top:6px; left:50%; width:9px; height:9px;
+    transform: translateX(-50%); border-radius:50%;
+    background: var(--accent); opacity:0.9;
+    box-shadow: 0 0 8px 2px var(--accent);
+  }
+  .limb{ position:absolute; width:6px; height:18px; border-radius:4px; background: linear-gradient(180deg, #eef2fb, #9aa8c4); border: 1.5px solid #2a3550; }
+  .limb.leg{ border-radius:4px 4px 6px 6px; }
+  .arm{ top:19px; transform-origin: 50% 3px; }
+  .arm.l{ left:5px; } .arm.r{ right:5px; }
+  .leg{ top:38px; height:20px; transform-origin: 50% 2px; }
+  .leg.l{ left:11px; } .leg.r{ right:11px; }
+
+  .walking .leg.l{ animation: walkLegL 0.62s ease-in-out infinite; }
+  .walking .leg.r{ animation: walkLegR 0.62s ease-in-out infinite; }
+  .walking .arm.l{ animation: walkLegR 0.62s ease-in-out infinite; }
+  .walking .arm.r{ animation: walkLegL 0.62s ease-in-out infinite; }
+  .walking{ animation: bob 0.62s ease-in-out infinite; }
+  @keyframes walkLegL{ 0%,100%{ transform: rotate(24deg);} 50%{ transform: rotate(-24deg);} }
+  @keyframes walkLegR{ 0%,100%{ transform: rotate(-24deg);} 50%{ transform: rotate(24deg);} }
+  @keyframes bob{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-3px);} }
+
+  .running .leg.l{ animation: runLegL 0.24s linear infinite; }
+  .running .leg.r{ animation: runLegR 0.24s linear infinite; }
+  .running .arm.l{ animation: runLegR 0.24s linear infinite; }
+  .running .arm.r{ animation: runLegL 0.24s linear infinite; }
+  .running{ animation: runBob 0.24s linear infinite; }
+  @keyframes runLegL{ 0%,100%{ transform: rotate(50deg);} 50%{ transform: rotate(-50deg);} }
+  @keyframes runLegR{ 0%,100%{ transform: rotate(-50deg);} 50%{ transform: rotate(50deg);} }
+  @keyframes runBob{ 0%,100%{ transform: translateY(0) scaleY(1);} 50%{ transform: translateY(-6px) scaleY(0.97);} }
+
+  .jumping .leg.l{ transform: rotate(46deg); transition: transform .12s ease; }
+  .jumping .leg.r{ transform: rotate(-46deg); transition: transform .12s ease; }
+  .jumping .arm.l{ transform: rotate(-140deg); transition: transform .12s ease; }
+  .jumping .arm.r{ transform: rotate(140deg); transition: transform .12s ease; }
+
+  .hanging .arm.l{ transform: rotate(-165deg); }
+  .hanging .arm.r{ transform: rotate(165deg); }
+  .hanging .leg.l, .hanging .leg.r{ animation: hangSwing 1.6s ease-in-out infinite; }
+  .hanging .leg.r{ animation-delay: -0.8s; }
+  .hanging{ animation: hangBody 1.6s ease-in-out infinite; }
+  @keyframes hangSwing{ 0%,100%{ transform: rotate(14deg);} 50%{ transform: rotate(-14deg);} }
+  @keyframes hangBody{ 0%,100%{ transform: rotate(6deg);} 50%{ transform: rotate(-6deg);} }
+
+  .namaste .arm.l{ transform: rotate(-96deg) translateY(-3px); transition: transform .3s ease; }
+  .namaste .arm.r{ transform: rotate(96deg) translateY(-3px); transition: transform .3s ease; }
+  .namaste .leg.l{ transform: rotate(7deg); transition: transform .3s ease; }
+  .namaste .leg.r{ transform: rotate(-7deg); transition: transform .3s ease; }
+
+  .sparkle-ring{
+    position:absolute; top:9px; left:50%; width:20px; height:20px;
+    margin-left:-10px; border-radius:50%;
+    border: 1.5px solid var(--amber);
+    opacity:0; transform: scale(0.4);
+    pointer-events:none;
+  }
+
+  footer{ position:relative; z-index:3; text-align:center; padding: 18px 0 26px; font-size:11px; letter-spacing:0.08em; color: var(--steel-dark); }
+
+  @media (prefers-reduced-motion: reduce){ .letter .underline{ transition:none; } }
+</style>
+</head>
+<body>
+
+<div class="grid-floor"></div>
+
+<div class="topbar">
+  <div class="brandmark">NEXTRON<span>'26</span> &nbsp;&middot;&nbsp; SYMPOSIUM</div>
+  <div class="tagline">where circuits meet ambition</div>
+</div>
+
+<div class="stage">
+  <div class="title-wrap" id="titleWrap">
+    <h1 class="title" id="title">
+      <span class="letter on-path" data-path="0">N<span class="underline"></span></span><span class="letter on-path" data-path="1">E<span class="underline"></span></span><span class="letter on-path" data-path="2">X<span class="underline"></span></span><span class="letter on-path" data-path="3">T<span class="underline"></span></span><span class="letter on-path" data-path="4">R<span class="underline"></span></span><span class="letter on-path" data-path="5">O<span class="underline"></span></span><span class="letter on-path" data-path="6">N<span class="underline"></span></span><span class="apostrophe">&rsquo;</span><span class="letter on-path suffix" data-path="7">2<span class="underline"></span></span><span class="letter on-path suffix" data-path="8">6<span class="underline"></span></span>
+    </h1>
+
+    <div id="robot" class="robot">
+      <div class="robot-body walking">
+        <div class="shadow"></div>
+        <div class="limb leg l"></div>
+        <div class="limb leg r"></div>
+        <div class="torso"></div>
+        <div class="limb arm l"></div>
+        <div class="limb arm r"></div>
+        <div class="head">
+          <div class="antenna"></div>
+          <div class="eye l"></div>
+          <div class="eye r"></div>
+          <div class="cheek l"></div>
+          <div class="cheek r"></div>
+          <div class="sparkle-ring"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subline">a small guardian robot patrols the letters &mdash; tap one to call it over</div>
+</div>
+
+<footer>NEXTRON '26 &nbsp;&mdash;&nbsp; ANNUAL TECHNICAL SYMPOSIUM</footer>
+
+<script>
+(function(){
+  var W = 46, H = 68; // must match .robot css size
+
+  function setup(){
+    var stageEl = document.getElementById('titleWrap');
+    var el = document.getElementById('robot');
+    var body = el.querySelector('.robot-body');
+    var ring = el.querySelector('.sparkle-ring');
+
+    var letters = Array.prototype.slice.call(document.querySelectorAll('.letter.on-path'))
+      .sort(function(a,b){ return (+a.dataset.path) - (+b.dataset.path); });
+
+    var stageRect = stageEl.getBoundingClientRect();
+    var points = letters.map(function(l){
+      var r = l.getBoundingClientRect();
+      return {
+        el: l,
+        cx: r.left + r.width/2 - stageRect.left,
+        top: r.top - stageRect.top,
+        bottom: r.bottom - stageRect.top
+      };
+    });
+    var last = points.length - 1;
+
+    function footTarget(i){ return { x: points[i].cx - W/2, y: points[i].bottom - H }; }
+    function topTarget(i){ return { x: points[i].cx - W/2, y: points[i].top }; }
+    function lightUp(i, on){ points[i].el.classList.toggle('lit', on); }
+    function setClass(cls){ body.className = 'robot-body ' + cls; }
+
+    function squash(letterEl, hard){
+      var dip = hard ? 8 : 5;
+      var sx = hard ? 1.12 : 1.06;
+      gsap.killTweensOf(letterEl);
+      gsap.timeline()
+        .to(letterEl, { y: dip, scaleY: hard ? 0.8 : 0.87, scaleX: sx, duration: 0.09, ease: 'power1.out', transformOrigin: '50% 100%' })
+        .to(letterEl, { y: 0, scaleY: 1, scaleX: 1, duration: hard ? 0.5 : 0.38, ease: 'elastic.out(1,0.4)' });
+    }
+    function pushOff(letterEl, dir){
+      gsap.killTweensOf(letterEl);
+      gsap.timeline()
+        .to(letterEl, { rotation: 8*dir, x: 2.5*dir, transformOrigin: '50% 100%', duration: 0.1, ease: 'power1.out' })
+        .to(letterEl, { rotation: 0, x: 0, duration: 0.4, ease: 'elastic.out(1,0.5)' });
+    }
+    function gripPull(letterEl, dir){
+      gsap.killTweensOf(letterEl);
+      gsap.to(letterEl, { rotation: -10*dir, y: -3, transformOrigin: '50% 0%', duration: 0.28, ease: 'power1.out' });
+    }
+    function gripRelease(letterEl){
+      gsap.killTweensOf(letterEl);
+      gsap.to(letterEl, { rotation: 0, y: 0, duration: 0.45, ease: 'elastic.out(1,0.45)' });
+    }
+    function bowAndSparkle(){
+      gsap.timeline()
+        .to(body, { rotation: 16, duration: .32, ease: 'power1.out' })
+        .to(body, { rotation: -3, duration: .26, ease: 'power1.inOut' })
+        .to(body, { rotation: 10, duration: .26, ease: 'power1.inOut' })
+        .to(body, { rotation: 0, duration: .36, ease: 'power1.inOut' });
+      gsap.timeline()
+        .set(ring, { opacity: 0.9, scale: 0.4 })
+        .to(ring, { opacity: 0, scale: 1.6, duration: .7, ease: 'power1.out' }, .1)
+        .set(ring, { opacity: 0.9, scale: 0.4 }, .55)
+        .to(ring, { opacity: 0, scale: 1.6, duration: .7, ease: 'power1.out' }, .65);
+    }
+
+    var current = 0;
+    var gen = 0; // generation token — invalidates stale async chains on interruption
+
+    var startA = footTarget(0);
+    gsap.set(el, { x: startA.x, y: startA.y, scaleX: 1 });
+    setClass('walking');
+    lightUp(0, true);
+
+    // ---- single-step movement between two (usually adjacent) letters ----
+    function stepMove(fromIdx, toIdx, action, myGen, onDone){
+      var dir = toIdx >= fromIdx ? 1 : -1;
+      var target = footTarget(toIdx);
+      var fromEl = points[fromIdx].el, toEl = points[toIdx].el;
+
+      gsap.set(el, { scaleX: dir });
+      lightUp(fromIdx, false);
+      pushOff(fromEl, dir);
+
+      var tl = gsap.timeline({ onComplete: function(){ if(myGen === gen) onDone(); } });
+
+      if(action === 'walk'){
+        setClass('walking');
+        tl.to(el, { x: target.x, y: target.y, duration: 0.9, ease: 'none' });
+        tl.call(squash, [toEl, false]);
+      } else if(action === 'run'){
+        setClass('running');
+        tl.to(el, { x: target.x, y: target.y, duration: 0.4, ease: 'none' });
+        tl.call(squash, [toEl, false]);
+      } else if(action === 'jump'){
+        setClass('jumping');
+        var apex = Math.min(footTarget(fromIdx).y, target.y) - 55;
+        tl.to(el, { x: target.x, duration: 0.55, ease: 'power1.inOut' }, 'j');
+        tl.to(el, { y: apex, duration: 0.275, ease: 'power2.out', yoyo:true, repeat:1 }, 'j');
+        tl.call(squash, [toEl, true]);
+      } else if(action === 'hang'){
+        var upA = topTarget(fromIdx), upB = topTarget(toIdx);
+        setClass('jumping');
+        tl.to(el, { x: upA.x, y: upA.y, duration: 0.35, ease: 'power1.out' });
+        tl.call(gripPull, [fromEl, dir]);
+        tl.call(setClass, ['hanging']);
+        tl.to(el, { x: upB.x, y: upB.y, duration: 0.95, ease: 'sine.inOut' });
+        tl.call(gripRelease, [fromEl]);
+        tl.call(gripPull, [toEl, dir]);
+        tl.call(setClass, ['walking']);
+        tl.to(el, { x: target.x, y: target.y, duration: 0.3, ease: 'power1.in' });
+        tl.call(gripRelease, [toEl]);
+        tl.call(squash, [toEl, false]);
+      }
+      lightUp(toIdx, true);
+    }
+
+    var ACTIONS = ['walk','run','jump','hang'];
+
+    function wanderStep(myGen){
+      if(myGen !== gen) return;
+      var dir = Math.random() < 0.5 ? -1 : 1;
+      var nxt = current + dir;
+      if(nxt < 0) nxt = 1;
+      if(nxt > last) nxt = last - 1;
+      var action = ACTIONS[Math.floor(Math.random() * ACTIONS.length)];
+      stepMove(current, nxt, action, myGen, function(){
+        current = nxt;
+        setTimeout(function(){ wanderStep(myGen); }, 150 + Math.random()*450);
+      });
+    }
+
+    function namasteThen(idx, myGen, after){
+      if(myGen !== gen) return;
+      setClass('namaste');
+      bowAndSparkle();
+      setTimeout(function(){
+        if(myGen !== gen) return;
+        setClass('walking');
+        after();
+      }, 1450);
+    }
+
+    // ---- called when a person touches / clicks a letter ----
+    function protectLetter(idx){
+      gen++;
+      var myGen = gen;
+      gsap.killTweensOf(el);
+
+      var target = footTarget(idx);
+      var curX = gsap.getProperty(el, 'x'), curY = gsap.getProperty(el, 'y');
+      var dir = target.x >= curX ? 1 : -1;
+      var dist = Math.hypot(target.x - curX, target.y - curY);
+      var dur = Math.min(1.0, Math.max(0.22, dist / 950));
+
+      gsap.set(el, { scaleX: dir });
+      setClass('running');
+
+      points[idx].el.classList.add('guard');
+      gsap.timeline({
+        onComplete: function(){
+          if(myGen !== gen) return;
+          squash(points[idx].el, true);
+          lightUp(idx, true);
+          namasteThen(idx, myGen, function(){
+            points[idx].el.classList.remove('guard');
+            current = idx;
+            setTimeout(function(){ wanderStep(myGen); }, 250);
+          });
+        }
+      }).to(el, { x: target.x, y: target.y, duration: dur, ease: 'power2.out' });
+    }
+
+    letters.forEach(function(l){
+      l.addEventListener('pointerdown', function(){
+        var idx = +l.dataset.path;
+        protectLetter(idx);
+      });
+    });
+
+    // ---- boot: greet first, then start wandering ----
+    namasteThen(0, gen, function(){ wanderStep(gen); });
+  }
+
+  if(document.fonts && document.fonts.ready){
+    document.fonts.ready.then(function(){ requestAnimationFrame(setup); });
+  } else {
+    window.addEventListener('load', setup);
+  }
+
+  var resizeTimer;
+  window.addEventListener('resize', function(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){ location.reload(); }, 350);
+  });
+})();
+</script>
+
+</body>
+</html>

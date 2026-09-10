@@ -1,9 +1,10 @@
-import { ArrowRight, CalendarDays, ExternalLink, MapPin, Rocket, Trophy, Users, Zap } from "lucide-react";
+import { ArrowRight, CalendarDays, MapPin, Rocket, Trophy, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig.js";
 import { openRegistrationForm } from "../utils/registration.js";
 import Countdown from "./Countdown.jsx";
+import RobotTitle from "./RobotTitle.jsx";
 
 /* ── Animation variants ─────────────────────────────────────── */
 const fade = (delay = 0) => ({
@@ -66,17 +67,14 @@ export default function Hero() {
           NATIONAL LEVEL TECHNICAL SYMPOSIUM
         </motion.span>
 
-        {/* Main title */}
-        <motion.h1
-          className="hero2-title"
+        {/* Main title — robot animation */}
+        <motion.div
           variants={fade(0.22)}
           initial="hidden"
           animate="visible"
-          aria-label={siteConfig.eventName}
         >
-          <span className="hero2-title-next">NEXTRON</span>
-          <span className="hero2-title-year">'26</span>
-        </motion.h1>
+          <RobotTitle />
+        </motion.div>
 
         {/* Tagline pill */}
         <motion.div

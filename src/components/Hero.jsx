@@ -104,7 +104,7 @@ export default function Hero() {
           <div className="hero2-info-card">
             <CalendarDays size={20} aria-hidden="true" />
             <div>
-              <strong>20<br />SEPTEMBER</strong>
+              <strong>22<br />SEPTEMBER</strong>
               <span>2026</span>
             </div>
           </div>

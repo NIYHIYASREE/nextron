@@ -6,7 +6,7 @@ import { siteConfig } from "../config/siteConfig.js";
 import { symposiumHighlights } from "../data/symposium.js";
 
 const stats = [
-  { icon: CalendarDays, label: "Event Date", value: "16 Sep 2026" },
+  { icon: CalendarDays, label: "Event Date", value: "22 Sep 2026" },
   { icon: Users, label: "Events", value: "5+" },
   { icon: Award, label: "Fee", value: "₹200" },
   { icon: MapPin, label: "Location", value: "Tindivanam" },
@@ -42,11 +42,11 @@ export default function About() {
       <section className="about-feature">
         <div className="about-device" aria-hidden="true">
           <Sparkles size={48} />
-          <span className="about-device-date">16 · 09 · 2026</span>
+          <span className="about-device-date">22 · 09 · 2026</span>
         </div>
         <div className="about-body">
           <span className="eyebrow">The Symposium</span>
-          <h2>Join us on September 16, 2026</h2>
+          <h2>Join us on September 22, 2026</h2>
           <p>
             {siteConfig.eventName} is organized by the Department of Electronics and Communication Engineering,
             University College of Engineering Tindivanam — a constituent college of Anna University Chennai.

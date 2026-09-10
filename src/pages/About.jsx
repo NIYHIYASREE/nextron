@@ -8,7 +8,7 @@ import { symposiumHighlights } from "../data/symposium.js";
 const stats = [
   { icon: CalendarDays, label: "Event Date", value: "22 Sep 2026" },
   { icon: Users, label: "Events", value: "5+" },
-  { icon: Award, label: "Fee", value: "₹200" },
+  { icon: Award, label: "Fee", value: "₹200 Online / ₹250 Onspot" },
   { icon: MapPin, label: "Location", value: "Tindivanam" },
 ];
 

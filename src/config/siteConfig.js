@@ -2,7 +2,7 @@ export const siteConfig = {
   eventName: "NEXTRON'26",
   eventFullName: "NEXTRON'26 - A National Level Technical Symposium",
   tagline: "The future of technology meets competition.",
-  eventDate: "22 September 2026",
+  eventDate: "16 September 2026",
   eventStartIso: "2026-09-22T09:00:00+05:30",
   eventEndIso: "2026-09-22T18:00:00+05:30",
   registrationFormUrl:

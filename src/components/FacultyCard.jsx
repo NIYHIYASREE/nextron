@@ -29,6 +29,7 @@ export default function FacultyCard({ person }) {
       <div>
         <h3>{person.name}</h3>
         <p className="role">{person.role}</p>
+        {person.designation && <p className="designation">{person.designation}</p>}
         {person.qualification && <p>{person.qualification}</p>}
         {person.specialization && <small>{person.specialization}</small>}
       </div>

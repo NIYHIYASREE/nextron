@@ -38,16 +38,11 @@ export const facultyGroups = [
         specialization: "Converter, IoT, VLSI, Embedded",
       },
       {
-        name: "Mr. A. Padmanathan",
-        role: "Assistant Professor",
-        qualification: "M.E.",
-        specialization: "VLSI Design and Testing",
-      },
-      {
         name: "Dr. S. Suvitha",
         role: "Assistant Professor",
         qualification: "M.E., Ph.D.",
         specialization: "Embedded System Technologies, I&CE, VLSI Design and Testing",
+        designation: "Symposium Coordinator",
       },
       {
         name: "Mrs. B. Mehar Nisha Begam",
@@ -60,6 +55,12 @@ export const facultyGroups = [
         role: "Assistant Professor",
         qualification: "M.E., (Ph.D.)",
         specialization: "Applied Electronics and Deep Learning",
+      },
+      {
+        name: "Mr. A. Padmanathan",
+        role: "Assistant Professor",
+        qualification: "M.E.",
+        specialization: "VLSI Design and Testing",
       },
     ],
   },

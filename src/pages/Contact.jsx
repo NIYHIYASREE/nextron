@@ -55,11 +55,10 @@ export default function Contact() {
             <strong>Priyaranjan A</strong><br />
             <a href="tel:+919789791974" className="contact-link">+91 97897 91974</a>
           </p>
-         
-            <br />
+          <p>
             <strong>Vignesh J.V</strong> —{" "}
             <a href="tel:+918667489800" className="contact-link">+91 86674 89800</a><br />
-<strong>Venkateswaran J</strong> —{" "}
+            <strong>Venkateswaran J</strong> —{" "}
             <a href="tel:+91 63741 56056" className="contact-link">+91 63741 56056</a>
             <strong>Pradeep S</strong> —{" "}
             <a href="tel:+916385513884" className="contact-link">+91 63855 13884</a>

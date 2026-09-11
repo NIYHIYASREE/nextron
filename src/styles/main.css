@@ -64,6 +64,74 @@ button { font: inherit; }
 img { max-width: 100%; display: block; }
 #root { min-height: 100vh; }
 
+/* ── Special offer banner ── */
+.special-offer-banner {
+  position: relative;
+  z-index: 2;
+  border-bottom: 1px solid rgba(255, 79, 216, 0.28);
+  background: linear-gradient(90deg, rgba(255, 79, 216, 0.16), rgba(103, 232, 249, 0.12));
+}
+.offer-container {
+  width: min(100% - 28px, var(--max));
+  min-height: 64px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.offer-content {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.offer-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  color: var(--magenta);
+}
+.offer-text {
+  min-width: 0;
+}
+.offer-text h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+.offer-text p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.offer-text strong {
+  color: var(--cyan);
+}
+.offer-note {
+  display: block;
+  margin-top: 1px;
+  color: var(--magenta);
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+.offer-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+}
+.offer-close:hover {
+  border-color: rgba(255, 79, 216, 0.45);
+  color: var(--magenta);
+}
+
 /* ── Skip link ── */
 .skip-link {
   position: absolute;

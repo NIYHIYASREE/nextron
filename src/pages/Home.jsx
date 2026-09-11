@@ -8,6 +8,7 @@ import FacultyCard from "../components/FacultyCard.jsx";
 import LocationSection from "../components/LocationSection.jsx";
 import RegistrationCTA from "../components/RegistrationCTA.jsx";
 import ScrollReveal from "../components/ScrollReveal.jsx";
+import SpecialOfferBanner from "../components/SpecialOfferBanner.jsx";
 import { events } from "../data/events.js";
 import { facultyGroups } from "../data/faculty.js";
 import { symposiumHighlights } from "../data/symposium.js";
@@ -27,6 +28,7 @@ export default function Home() {
 
   return (
     <>
+      <SpecialOfferBanner />
       <Hero />
 
       {/* ── About band ── */}
